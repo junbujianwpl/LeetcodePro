@@ -63,14 +63,14 @@ int SortAlgorithmn::heapSort(int *arr, int len)
 
 int SortAlgorithmn::adjustHeap(int *arr, int start, int max)
 {
-    if(start<=max){
+    if(start>=max){
         return 0;
     }
     int times=0;
-    for(int root=start;2*root+2<max;){
+    for(int root=start;2*root+1<max;){
         int left=root*2+1;
         int right=left+1;
-        int pos=(arr[left]>arr[right])?left:right;
+        int pos=(right<max)?((arr[left]>arr[right])?left:right):left;
         if(arr[root]<arr[pos]){
             int tmp=arr[root];
             arr[root]=arr[pos];
