@@ -6,10 +6,11 @@ SortAlgorithmn::SortAlgorithmn()
 
 }
 
-void SortAlgorithmn::quickSort(int *nums, int count)
+int SortAlgorithmn::quickSort(int *nums, int count)
 {
+    int runtimes=0;
     if(count<2)
-        return;
+        return runtimes;
 
     int i=0;
     int j=count-1;
@@ -17,6 +18,7 @@ void SortAlgorithmn::quickSort(int *nums, int count)
         int sentinal = nums[j];
         while(nums[i]<sentinal && i < j){
             ++i;
+            runtimes++;
         }
         if(i<j){
             nums[j]=nums[i];
@@ -25,11 +27,15 @@ void SortAlgorithmn::quickSort(int *nums, int count)
 
         while(nums[j]>=sentinal && i<j){
             --j;
+            runtimes++;
         }
         if(i<j){
             nums[i]=nums[j];
             nums[j]=sentinal;
         }
+
+            runtimes++;
+
     }
     if(i<count && i>-1){
         print_arr(nums,count);
@@ -37,6 +43,7 @@ void SortAlgorithmn::quickSort(int *nums, int count)
         quickSort(&nums[i],count-i);
     }
 
+    return runtimes;
 
 }
 
@@ -57,7 +64,7 @@ int SortAlgorithmn::heapSort(int *arr, int len)
         times+=adjustHeap(arr,0,len-i);
         print_arr(arr,len);
     }
-
+    return times;
 
 }
 

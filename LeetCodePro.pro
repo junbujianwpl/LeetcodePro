@@ -28,11 +28,15 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     SortAlgorithmn.cpp \
     tests/TestSortAlgorithmn.cpp \
-    main.cpp
+    main.cpp \
+    Leetcode.cpp \
+    tests/TestLeetCode.cpp
 
 HEADERS += \
     common.h \
     SortAlgorithmn.h \
-    tests/TestSortAlgorithmn.h
+    tests/TestSortAlgorithmn.h \
+    Leetcode.h \
+    tests/TestLeetCode.h
 
 FORMS +=

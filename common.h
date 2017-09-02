@@ -7,6 +7,7 @@
 
 
 #define print_arr(arr,len) \
+    std::cout<<len<<":num "; \
     for(int i=0;i<len;i++) \
     std::cout<<arr[i]<<" ";            \
     std::cout<<std::endl;           \

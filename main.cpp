@@ -1,6 +1,7 @@
 
 #include "SortAlgorithmn.h"
 #include "common.h"
+#include "tests/TestLeetCode.h"
 
 int main(int argc,char** argv){
 
@@ -9,4 +10,8 @@ int main(int argc,char** argv){
     print_arr(arr,ARR_SIZE(arr));
     SortAlgorithmn::heapSort(arr,ARR_SIZE(arr));
     print_arr(arr,ARR_SIZE(arr));
+
+    TestLeetCode::twoSumTest();
+    TestLeetCode::threeSumTest();
+
 }

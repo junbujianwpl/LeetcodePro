@@ -7,7 +7,7 @@ class SortAlgorithmn
 public:
     SortAlgorithmn();
 
-    static void quickSort(int *nums,int count);
+    static int quickSort(int *nums,int count);
 
     static int  heapSort(int *arr,int len);
 
