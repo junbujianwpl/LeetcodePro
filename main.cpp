@@ -14,4 +14,6 @@ int main(int argc,char** argv){
     TestLeetCode::twoSumTest();
     TestLeetCode::threeSumTest();
 
+    TestLeetCode::twoSumIndexTest();
+
 }

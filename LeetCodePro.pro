@@ -40,3 +40,6 @@ HEADERS += \
     tests/TestLeetCode.h
 
 FORMS +=
+
+DISTFILES += \
+    README.md

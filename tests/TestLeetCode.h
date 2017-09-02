@@ -10,6 +10,7 @@ public:
     TestLeetCode();
 
     static void twoSumTest();
+    static void twoSumIndexTest();
     static void threeSumTest();
 };
 

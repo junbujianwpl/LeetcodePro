@@ -28,6 +28,13 @@ void TestLeetCode::twoSumTest()
     print_2d_vec(result);
 }
 
+void TestLeetCode::twoSumIndexTest()
+{
+    result=Leetcode::twoSumIndex(std::vector<int>(&arr[0],&arr[ARR_SIZE(arr)]),12);
+
+    print_2d_vec(result);
+}
+
 void TestLeetCode::threeSumTest()
 {
     int times=0;
