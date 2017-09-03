@@ -41,8 +41,23 @@ public:
 
 
 
+    /**
+     * @brief delSame      del same ele in a sorted arr
+     * @param arr		   sorted array
+     * @param len		   array len,also a output,as the output arr len.
+     * @return 			   run times
+     */
     static int delSame(int *arr, int &len);
 
+
+    /**
+     * @brief delSameMoreThanN		del redudant ele when nums exceed max
+     * @param arr				    array
+     * @param len					array len
+     * @param max					the max of duplicate elements
+     * @return 					    run times
+     */
+    static int delSameMoreThanN(int *arr, int &len,int max);
 
 
 };

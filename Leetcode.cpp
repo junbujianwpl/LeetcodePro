@@ -125,6 +125,31 @@ int Leetcode::delSame(int *arr, int& len)
         ++times;
     }
 
-    len=j;
+    len=++j;
     return times;
+}
+
+int Leetcode::delSameMoreThanN(int *arr, int &len, int max)
+{
+    //del same ele when the number of same elements exceed max
+    int times=0;
+
+    int count=0;
+    int j=0;
+    for(int i=0;i<len;i++){
+        if(arr[j]==arr[i]){
+            ++count;
+            if(count<=max){
+                arr[++j]=arr[i];
+            }
+        }else{
+            count=0;
+            arr[++j]=arr[i];
+        }
+        times++;
+    }
+    len=++j;
+
+    return times;
+
 }

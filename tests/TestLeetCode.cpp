@@ -4,7 +4,7 @@
 
 
 static std::vector<std::vector<int> >result;
-static int arr[]={2,1,7,9,22,5,5,3,4,6,4,9,8,99,88,22,10,5,7,1};
+static int arr[]={2,1,7,9,22,5,5,3,4,6,4,9,8,99,88,22,10,5,7,1,7,6,4,4,3,2,4,3,6,8,7,9,7,8};
 
 static print_2d_vec(std::vector<std::vector<int> > in){
 
@@ -56,4 +56,13 @@ void TestLeetCode::delSameInSortedArrTest()
     int times=Leetcode::delSame(arr,len);
     print_arr(arr,len);
 
+}
+
+void TestLeetCode::delSameInSortedArrMaxTest()
+{
+    int len=ARR_SIZE(arr);
+    SortAlgorithmn::quickSort(arr,ARR_SIZE(arr));
+    print_arr(arr,len);
+    int times=Leetcode::delSameMoreThanN(arr,len,1);
+    print_arr(arr,len);
 }
