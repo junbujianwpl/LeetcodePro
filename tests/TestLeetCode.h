@@ -12,6 +12,7 @@ public:
     static void twoSumTest();
     static void twoSumIndexTest();
     static void threeSumTest();
+    static void delSameInSortedArrTest();
 };
 
 #endif // TESTLEETCODE_H

@@ -9,7 +9,9 @@ class Leetcode
 {
 public:
     Leetcode();
-    
+
+////*****************************************ARRAY********************************************////
+
     /**
      * @brief twoSum return all pairs whose sum is dst
      * @param arr    input array
@@ -38,6 +40,8 @@ public:
     static std::vector<std::vector<int> > threeSum(std::vector<int> arr, int dst, int *times=NULL);
 
 
+
+    static int delSame(int *arr, int &len);
 
 
 

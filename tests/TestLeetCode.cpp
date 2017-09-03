@@ -1,9 +1,10 @@
 #include "TestLeetCode.h"
 #include <QObject>
+#include "SortAlgorithmn.h"
 
 
 static std::vector<std::vector<int> >result;
-static int arr[]={2,4,9,8,99,88,22,10,5,7,1};
+static int arr[]={2,1,7,9,22,5,5,3,4,6,4,9,8,99,88,22,10,5,7,1};
 
 static print_2d_vec(std::vector<std::vector<int> > in){
 
@@ -45,5 +46,14 @@ void TestLeetCode::threeSumTest()
     std::cout<<" three sum runtimes:"<<times<<std::endl;
     print_arr(in,in.size());
     print_2d_vec(result);
+
+}
+
+void TestLeetCode::delSameInSortedArrTest()
+{
+    int len=ARR_SIZE(arr);
+    SortAlgorithmn::quickSort(arr,ARR_SIZE(arr));
+    int times=Leetcode::delSame(arr,len);
+    print_arr(arr,len);
 
 }

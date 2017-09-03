@@ -16,7 +16,7 @@ int SortAlgorithmn::quickSort(int *nums, int count)
     int j=count-1;
     while(i<j){
         int sentinal = nums[j];
-        while(nums[i]<sentinal && i < j){
+        while(nums[i]<=sentinal && i < j){
             ++i;
             runtimes++;
         }

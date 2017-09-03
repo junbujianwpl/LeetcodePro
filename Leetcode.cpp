@@ -111,3 +111,20 @@ std::vector<std::vector<int> > Leetcode::threeSum(std::vector<int> arr, int dst,
 
     return result;
 }
+
+int Leetcode::delSame(int *arr, int& len)
+{
+    //del same element from a sorted arr
+    int times=0;
+
+    int j=0;
+    for(int i=0;i<len;i++){
+        if(arr[j]!=arr[i]){
+            arr[++j]=arr[i];
+        }
+        ++times;
+    }
+
+    len=j;
+    return times;
+}
