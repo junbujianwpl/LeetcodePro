@@ -60,6 +60,16 @@ public:
     static int delSameMoreThanN(int *arr, int &len,int max);
 
 
+    /**
+     * @brief delSameMoreThanNBetter	better one. convert the issue to a simple del same issue.
+     * @param arr                       array
+     * @param len                       array len
+     * @param max                       the up limitation of the same ele number
+     * @return                          run times
+     */
+    static int delSameMoreThanNBetter(int *arr, int &len,int max);
+
+
 };
 
 #endif // LEETCODE_H

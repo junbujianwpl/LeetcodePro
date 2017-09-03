@@ -14,6 +14,7 @@ public:
     static void threeSumTest();
     static void delSameInSortedArrTest();
     static void delSameInSortedArrMaxTest();
+    static void delSameInSortedArrMaxBetterTest();
 };
 
 #endif // TESTLEETCODE_H
