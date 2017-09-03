@@ -17,5 +17,6 @@ int main(int argc,char** argv){
     TestLeetCode::twoSumIndexTest();
 
 //    TestLeetCode::delSameInSortedArrTest();
-    TestLeetCode::delSameInSortedArrMaxTest();
+//    TestLeetCode::delSameInSortedArrMaxTest();
+    TestLeetCode::delSameInSortedArrMaxBetterTest();
 }

@@ -153,3 +153,17 @@ int Leetcode::delSameMoreThanN(int *arr, int &len, int max)
     return times;
 
 }
+
+int Leetcode::delSameMoreThanNBetter(int *arr, int &len, int max)
+{
+    int times=0;
+    int j=max;
+    for(int i=max;i<len;i++){
+        if(arr[j-max]!=arr[i]){
+            arr[j++]=arr[i];
+        }
+        ++times;
+    }
+    len=j;
+    return times;
+}

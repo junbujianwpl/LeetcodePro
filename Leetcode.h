@@ -60,6 +60,9 @@ public:
     static int delSameMoreThanN(int *arr, int &len,int max);
 
 
+    static int delSameMoreThanNBetter(int *arr, int &len,int max);
+
+
 };
 
 #endif // LEETCODE_H

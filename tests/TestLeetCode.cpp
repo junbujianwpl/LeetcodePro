@@ -66,3 +66,12 @@ void TestLeetCode::delSameInSortedArrMaxTest()
     int times=Leetcode::delSameMoreThanN(arr,len,1);
     print_arr(arr,len);
 }
+
+void TestLeetCode::delSameInSortedArrMaxBetterTest()
+{
+    int len=ARR_SIZE(arr);
+    SortAlgorithmn::quickSort(arr,ARR_SIZE(arr));
+    print_arr(arr,len);
+    int times=Leetcode::delSameMoreThanNBetter(arr,len,2);
+    print_arr(arr,len);
+}
