@@ -16,6 +16,20 @@ static print_2d_vec(std::vector<std::vector<int> > in){
     }
 }
 
+template<typename T>
+static print_2d_vec_temp(std::vector<std::vector<T> > in){
+
+    foreach (std::vector<T> v, in) {
+        foreach (T i, v) {
+           std::cout<<i<<" ";
+        }
+        std::cout<<std::endl;
+    }
+}
+
+
+
+
 TestLeetCode::TestLeetCode()
 {
 
@@ -74,4 +88,24 @@ void TestLeetCode::delSameInSortedArrMaxBetterTest()
     print_arr(arr,len);
     int times=Leetcode::delSameMoreThanNBetter(arr,len,2);
     print_arr(arr,len);
+}
+
+void TestLeetCode::getPrimeTest()
+{
+    for(int i=0;i<50;i++){
+        std::cout<<Leetcode::getPrime(i)<<" ";
+    }
+    std::cout<<std::endl;
+}
+
+void TestLeetCode::getPrimeSumFactorTest()
+{
+    std::vector<UINT> in({20,30,40,50,33,44,68,99});
+    for(int i=0;i<in.size();i++){
+        std::vector<std::vector<UINT> > vs=Leetcode::getTwoPrimeSumFactor(in.at(i));
+        std::cout<<in.at(i)<<": ";
+        print_2d_vec_temp<UINT>(vs);
+        std::cout<<std::endl;
+    }
+
 }

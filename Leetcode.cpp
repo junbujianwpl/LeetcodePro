@@ -167,3 +167,80 @@ int Leetcode::delSameMoreThanNBetter(int *arr, int &len, int max)
     len=j;
     return times;
 }
+
+UINT Leetcode::getPrime(UINT idx)
+{
+    static std::vector<UINT> primes({2,3});
+
+    if(idx<primes.size()){
+        return primes.at(idx);
+    }
+
+    UINT div=2;
+    for(UINT dst=*primes.rbegin()+1;;dst++){
+        for(div=2;div<sqrt(dst)+1;div++){
+            if(dst%div==0){
+                break;
+            }
+        }
+        if(div>sqrt(dst)){
+            primes.push_back(dst);
+            return dst;
+        }
+    }
+}
+
+std::vector<UINT> Leetcode::getPrimesLessThan(UINT dst)
+{
+    std::vector<UINT> result;
+    UINT prime=0;
+    for(UINT i=0;(prime=getPrime(i))<dst;i++){
+        result.push_back(prime);
+    }
+    return result;
+}
+
+double Leetcode::sqrt(double d)
+{
+    double dst=d/2;
+    while(dst*dst>d){
+        dst/=2;
+    }
+
+    while(dst*dst<d){
+        dst*=2;
+    }
+
+    dst=d/2;
+
+    return dst;
+}
+
+std::vector<std::vector<UINT> > Leetcode::getTwoPrimeSumFactor(UINT sum, bool withOne)
+{
+    std::vector<std::vector<UINT> > result;
+    std::vector<UINT> primes=getPrimesLessThan(sum);
+    if(withOne){
+        primes.insert(primes.begin(),1);
+    }
+
+    print_arr(primes,primes.size());
+
+    UINT i=0;
+    UINT j=primes.size()-1;
+
+    while(i<j){
+        while(i<j && primes.at(i)+primes.at(j)<sum){
+            ++i;
+        }
+        while(i<j && primes.at(i)+primes.at(j)>sum){
+            --j;
+        }
+        if(primes.at(i)+primes.at(j)==sum){
+            std::vector<UINT> v({primes.at(i++),primes.at(j)});
+            result.push_back(v);
+        }
+    }
+    return result;
+}
+

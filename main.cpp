@@ -18,5 +18,8 @@ int main(int argc,char** argv){
 
 //    TestLeetCode::delSameInSortedArrTest();
 //    TestLeetCode::delSameInSortedArrMaxTest();
-    TestLeetCode::delSameInSortedArrMaxBetterTest();
+//    TestLeetCode::delSameInSortedArrMaxBetterTest();
+    TestLeetCode::getPrimeTest();
+    TestLeetCode::getPrimeSumFactorTest();
+
 }

@@ -5,6 +5,8 @@
 #include <map>
 #include "common.h"
 
+typedef unsigned int UINT;
+
 class Leetcode
 {
 public:
@@ -68,6 +70,46 @@ public:
      * @return                          run times
      */
     static int delSameMoreThanNBetter(int *arr, int &len,int max);
+
+
+
+
+
+
+////*****************************************Examinations********************************************////
+
+
+    /**
+     * @brief getPrime         get the idx'th prime from first prime 2
+     * @param idx              the index of prime array
+     * @return                 the prime
+     */
+    static UINT getPrime(UINT idx);
+
+    /**
+     * @brief getPrimesLessThan       get all primes Less than dst
+     * @param dst                     the up limits of prime
+     * @return                        the ordered array of primes
+     */
+    static std::vector<UINT> getPrimesLessThan(UINT dst);
+
+
+    /**
+     * @brief sqrt        get the sqrt of of double
+     * @param d           dst val
+     * @return            the sqrt of d
+     */
+    static double sqrt(double d);
+
+
+    /**
+     * @brief getTwoPrimeSumFactor        get all prime pairs whose sum is dst
+     * @param sum                         sum val
+     * @param withOne                     within 1 or not
+     * @return                            all prime pairs
+     */
+    static std::vector<std::vector<UINT> > getTwoPrimeSumFactor(UINT sum, bool withOne=false);
+
 
 
 };

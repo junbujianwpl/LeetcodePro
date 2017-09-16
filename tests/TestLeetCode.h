@@ -15,6 +15,11 @@ public:
     static void delSameInSortedArrTest();
     static void delSameInSortedArrMaxTest();
     static void delSameInSortedArrMaxBetterTest();
+
+
+    static void getPrimeTest();
+
+    static void getPrimeSumFactorTest();
 };
 
 #endif // TESTLEETCODE_H
