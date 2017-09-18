@@ -211,7 +211,7 @@ double Leetcode::sqrt(double d, double loss)
     double x=1.0;
     do{
         x=0.5*x+0.5*d/x;
-    }while(x*x-d>loss);
+    }while(fabs(x*x-d)>loss);
 
     return x;
 }
