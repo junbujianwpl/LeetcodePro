@@ -95,11 +95,12 @@ public:
 
 
     /**
-     * @brief sqrt        get the sqrt of of double
-     * @param d           dst val
-     * @return            the sqrt of d
+     * @brief sqrt                 calc square root of dst
+     * @param d                    the input
+     * @param loss                 the episode
+     * @return                     the square root of dst
      */
-    static double sqrt(double d);
+    static double sqrt(double d,double loss=0.00000001);
 
 
     /**

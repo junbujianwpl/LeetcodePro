@@ -109,3 +109,11 @@ void TestLeetCode::getPrimeSumFactorTest()
     }
 
 }
+
+void TestLeetCode::sqrtTest()
+{
+    double arr[]={2,3,4,9,16,19,22,25};
+    for(int i=0;i<ARR_SIZE(arr);i++){
+        std::cout<<arr[i]<<":"<<Leetcode::sqrt(arr[i])<<std::endl;
+    }
+}

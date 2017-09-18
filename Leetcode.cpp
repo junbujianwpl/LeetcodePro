@@ -200,20 +200,20 @@ std::vector<UINT> Leetcode::getPrimesLessThan(UINT dst)
     return result;
 }
 
-double Leetcode::sqrt(double d)
+double Leetcode::sqrt(double d, double loss)
 {
-    double dst=d/2;
-    while(dst*dst>d){
-        dst/=2;
-    }
+    //newton formula.the curve y=f(x).we use the tangent line to simulate its root in some condition.
+    //. f(x0)+f'(x0)(x-x0)=y. make y=0. use the line root to simulate root of the curve f(x)=0. get the root
+    //and mark it as x1. the we use tangent line at x1 and to get the root and mark it as x2. iter until we
+    //get the xn whose loss isn't beyond our expection. f(x0)+f'(x0)(x-x0)=0, x1=x0-f(x0)/f'(x0).
+    //so, if we get N as input, we want N^(0.5)=x. so x^2-N=0. then our f(x)=x^2-N. f'(x)=2x.
+    //so, x1=x0-(x0^2-N)/2x0=0.5x0+0.5N/x0. make x0=1. f(x0)=1. x1=1-1/2=0.5. x2=x1-(x1^2-N)/2x1
+    double x=1.0;
+    do{
+        x=0.5*x+0.5*d/x;
+    }while(x*x-d>loss);
 
-    while(dst*dst<d){
-        dst*=2;
-    }
-
-    dst=d/2;
-
-    return dst;
+    return x;
 }
 
 std::vector<std::vector<UINT> > Leetcode::getTwoPrimeSumFactor(UINT sum, bool withOne)

@@ -19,7 +19,8 @@ int main(int argc,char** argv){
 //    TestLeetCode::delSameInSortedArrTest();
 //    TestLeetCode::delSameInSortedArrMaxTest();
 //    TestLeetCode::delSameInSortedArrMaxBetterTest();
-    TestLeetCode::getPrimeTest();
-    TestLeetCode::getPrimeSumFactorTest();
+//    TestLeetCode::getPrimeTest();
+//    TestLeetCode::getPrimeSumFactorTest();
+    TestLeetCode::sqrtTest();
 
 }

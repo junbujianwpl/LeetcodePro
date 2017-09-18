@@ -20,6 +20,8 @@ public:
     static void getPrimeTest();
 
     static void getPrimeSumFactorTest();
+    static void sqrtTest();
+
 };
 
 #endif // TESTLEETCODE_H
