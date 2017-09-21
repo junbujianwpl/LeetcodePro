@@ -117,3 +117,11 @@ void TestLeetCode::sqrtTest()
         std::cout<<arr[i]<<":"<<Leetcode::sqrt(arr[i])<<std::endl;
     }
 }
+
+void TestLeetCode::cubeRootTest()
+{
+    double arr[]={2,3,9,8,27,16,99,100,1000};
+    for(int i=0;i<ARR_SIZE(arr);i++){
+        std::cout<<arr[i]<<":"<<Leetcode::cubeRoot(arr[i])<<std::endl;
+    }
+}

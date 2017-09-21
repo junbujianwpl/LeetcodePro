@@ -216,6 +216,20 @@ double Leetcode::sqrt(double d, double loss)
     return x;
 }
 
+double Leetcode::cubeRoot(double d, double loss)
+{
+    //as square root before
+    //f(x0)+f'(x0)(x-x0)=y.
+    //get N as input. we want N^(1/3)=x. so x^3-N=0. the f(x)=x^3-N.
+    //f'(x)=3x^2. so x=x0-f(x0)/f'(x0)=x0-(x0^3-N)/(3x0^2)=2x0/3+N/(3x0^2)
+    double x=1.0;
+    do{
+        x=2*x/3+d/(3*x*x);
+    }while(fabs(x*x*x-d)>loss);
+
+    return x;
+}
+
 std::vector<std::vector<UINT> > Leetcode::getTwoPrimeSumFactor(UINT sum, bool withOne)
 {
     std::vector<std::vector<UINT> > result;

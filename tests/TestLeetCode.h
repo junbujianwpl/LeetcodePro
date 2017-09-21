@@ -21,6 +21,8 @@ public:
 
     static void getPrimeSumFactorTest();
     static void sqrtTest();
+    static void cubeRootTest();
+
 
 };
 

@@ -103,6 +103,8 @@ public:
     static double sqrt(double d,double loss=0.00000001);
 
 
+    static double cubeRoot(double d,double loss=0.00000001);
+
     /**
      * @brief getTwoPrimeSumFactor        get all prime pairs whose sum is dst
      * @param sum                         sum val
