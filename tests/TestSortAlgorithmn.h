@@ -14,6 +14,8 @@ class TestSortAlgorithmn : public QObject
 public:
     TestSortAlgorithmn();
 
+    static void qsortTest();
+
 private slots:
     void testQuickSort();
 

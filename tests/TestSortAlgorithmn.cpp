@@ -1,7 +1,17 @@
 #include "TestSortAlgorithmn.h"
 
+#include <vector>
+using std::vector;
 TestSortAlgorithmn::TestSortAlgorithmn()
 {
+
+}
+
+void TestSortAlgorithmn::qsortTest()
+{
+    vector<int> v({1,3,4,2,999,22,44,22,1,3245,5654,232,65,24332,34234,150});
+    SortAlgorithmn::quickSort(v);
+    print_arr(v,v.size());
 
 }
 

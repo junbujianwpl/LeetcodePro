@@ -7,6 +7,9 @@
 
 typedef unsigned int UINT;
 
+using std::vector;
+using std::map;
+
 class Leetcode
 {
 public:
@@ -72,6 +75,12 @@ public:
     static int delSameMoreThanNBetter(int *arr, int &len,int max);
 
     static float getMedianOfTwoSortedArr(int *nums1, int len, int *nums2, int len2);
+
+
+    static  int getHIndexOfPaper(vector<int>& v);
+
+
+    static  bool searchMatrix(vector<vector<int> >& matrix, int target);
 
 
 

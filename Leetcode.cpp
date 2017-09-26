@@ -215,6 +215,66 @@ float Leetcode::getMedianOfTwoSortedArr(int *nums1, int len, int *nums2, int len
     return ret;
 }
 
+int Leetcode::getHIndexOfPaper(vector<int> &citations)
+{
+    //According to the definition of h-index on Wikipedia: "A scientist has index h if h of his/her N papers have at least h citations each, and the other N ? h papers have no more than h citations each."
+    //    For example, given citations = [3, 0, 6, 1, 5], which means the researcher has 5 papers in total and each of them had received 3, 0, 6, 1, 5 citations respectively. Since the researcher has 3 papers with at least 3 citations each and the remaining two with no more than 3 citations each, his h-index is 3.
+    SortAlgorithmn::quickSort(citations);
+    int ret=0;
+    for(int i=0;i<citations.size();i++){
+        int paper_num=citations.size()-i;
+        int least_time=citations[i];
+        if(least_time>=paper_num){
+            ret=(ret>paper_num)?ret:paper_num;
+        }
+    }
+    return ret;
+}
+
+bool Leetcode::searchMatrix(vector<vector<int> > &matrix, int target)
+{
+    if(matrix.empty()){
+         return false;
+     }
+     if(matrix.at(0).empty()){
+         return false;
+     }
+     int maxrow=matrix.size()-1;
+     int maxcol=matrix.at(0).size()-1;
+     int i=maxrow;
+     int j=maxcol;
+
+     int leftx=0;
+     int lefty=0;
+     int rightx=maxrow;
+     int righty=maxcol;
+     while(leftx<rightx || lefty<righty){
+         int v=matrix.at(i).at(j);
+         if(v>target){
+             rightx=i;
+             righty=j;
+         }else if(v<target){
+             leftx=i;
+             lefty=j;
+         }else{
+             return true;
+         }
+         i=(leftx+rightx)/2;
+         j=(lefty+righty)/2;
+         if(rightx-leftx==1 && righty-lefty==1 &&rightx<=maxrow && righty<=maxcol){
+             for(int xadd=0;xadd<2;xadd++){
+                 for(int yadd=0;yadd<2;yadd++){
+                     if(matrix.at(i+xadd).at(i+yadd)==target)
+                         return true;
+                 }
+             }
+         }
+
+     }
+
+     return false;
+}
+
 UINT Leetcode::getPrime(UINT idx)
 {
     static std::vector<UINT> primes({2,3});

@@ -47,6 +47,56 @@ int SortAlgorithmn::quickSort(int *nums, int count)
 
 }
 
+int SortAlgorithmn::quickSort(vector<int> &v)
+{
+    stack<int> startStack;
+    stack<int> lenStack;
+    startStack.push(0);
+    lenStack.push(v.size()-1);
+
+    while(!startStack.empty()){
+        int start=startStack.top();
+        int end=lenStack.top();
+        startStack.pop();
+        lenStack.pop();
+
+        if(end-start<1){
+            continue;
+        }
+
+        int i=start;
+        int j=end;
+
+        while(i<j){
+            while(i<j && v[i]<=v[j]){
+                ++i;
+            }
+            if(i<j){
+                int tmp=v[i];
+                v[i]=v[j];
+                v[j]=tmp;
+            }
+
+            while(i<j && v[i]<v[j]){
+                --j;
+            }
+            if(i<j){
+                int tmp=v[i];
+                v[i]=v[j];
+                v[j]=tmp;
+            }
+        }
+
+        startStack.push(start);
+        lenStack.push(i-1);
+        startStack.push(i);
+        lenStack.push(end);
+    }
+
+
+
+}
+
 int SortAlgorithmn::heapSort(int *arr, int len)
 {
     int times=0;

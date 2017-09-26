@@ -2,6 +2,7 @@
 #include "SortAlgorithmn.h"
 #include "common.h"
 #include "tests/TestLeetCode.h"
+#include "tests/TestSortAlgorithmn.h"
 
 int main(int argc,char** argv){
 
@@ -24,5 +25,10 @@ int main(int argc,char** argv){
     TestLeetCode::sqrtTest();
     TestLeetCode::cubeRootTest();
     TestLeetCode::getTwoSortArrMediaTest();
+
+    TestSortAlgorithmn::qsortTest();
+
+    TestLeetCode::search2DMatrixTest();
+
 
 }

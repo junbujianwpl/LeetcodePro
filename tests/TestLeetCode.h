@@ -25,6 +25,8 @@ public:
 
     static void getTwoSortArrMediaTest();
 
+    static bool search2DMatrixTest();
+
 
 };
 
