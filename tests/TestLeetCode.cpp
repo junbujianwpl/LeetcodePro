@@ -125,3 +125,25 @@ void TestLeetCode::cubeRootTest()
         std::cout<<arr[i]<<":"<<Leetcode::cubeRoot(arr[i])<<std::endl;
     }
 }
+
+void TestLeetCode::getTwoSortArrMediaTest()
+{
+    int arr[]={2};
+    int arr2[]={};
+
+    SortAlgorithmn::quickSort(arr,ARR_SIZE(arr));
+    SortAlgorithmn::quickSort(arr2,ARR_SIZE(arr2));
+
+    float media = Leetcode::getMedianOfTwoSortedArr(arr,ARR_SIZE(arr),arr2,ARR_SIZE(arr2));
+
+    print_arr(arr,ARR_SIZE(arr));
+    print_arr(arr2,ARR_SIZE(arr2));
+
+    std::cout<<"media is "<<media<<std::endl;
+
+
+
+
+
+
+}

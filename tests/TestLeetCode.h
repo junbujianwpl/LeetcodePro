@@ -23,6 +23,8 @@ public:
     static void sqrtTest();
     static void cubeRootTest();
 
+    static void getTwoSortArrMediaTest();
+
 
 };
 

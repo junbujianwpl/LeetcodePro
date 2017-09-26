@@ -23,5 +23,6 @@ int main(int argc,char** argv){
 //    TestLeetCode::getPrimeSumFactorTest();
     TestLeetCode::sqrtTest();
     TestLeetCode::cubeRootTest();
+    TestLeetCode::getTwoSortArrMediaTest();
 
 }

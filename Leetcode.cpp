@@ -168,6 +168,53 @@ int Leetcode::delSameMoreThanNBetter(int *arr, int &len, int max)
     return times;
 }
 
+float Leetcode::getMedianOfTwoSortedArr(int *nums1, int len, int *nums2, int len2)
+{
+    int runtimes=0;
+    int foreval=0;
+    int postval=0;
+    int idx=0;
+    int i=0;
+    int j=0;
+    while(idx<=(len+len2)/2){
+
+        if(i>=len){
+            foreval=postval;
+            postval=nums2[j++];
+            ++idx;
+        }else if(j>=len2){
+            foreval=postval;
+            postval=nums1[i++];
+            ++idx;
+        }else{
+            if(nums1[i]<nums2[j]){
+                foreval=postval;
+                postval=nums1[i++];
+                ++idx;
+            }else if(nums1[i]>nums2[j]){
+                foreval=postval;
+                postval=nums2[j++];
+                ++idx;
+            }else{
+                foreval=postval;
+                postval=nums1[i++];
+                ++idx;
+            }
+        }
+         ++runtimes;
+    }
+
+    double ret=0.0;
+
+    if((len+len2)%2==0){
+        ret=(float(foreval)+float(postval)) /2.0;
+    }else{
+        ret=postval;
+    }
+
+    return ret;
+}
+
 UINT Leetcode::getPrime(UINT idx)
 {
     static std::vector<UINT> primes({2,3});

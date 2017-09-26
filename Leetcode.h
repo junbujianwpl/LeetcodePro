@@ -71,6 +71,7 @@ public:
      */
     static int delSameMoreThanNBetter(int *arr, int &len,int max);
 
+    static float getMedianOfTwoSortedArr(int *nums1, int len, int *nums2, int len2);
 
 
 
