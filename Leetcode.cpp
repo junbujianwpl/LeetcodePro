@@ -239,16 +239,40 @@ bool Leetcode::searchMatrix(vector<vector<int> > &matrix, int target)
      if(matrix.at(0).empty()){
          return false;
      }
+
+     if(matrix.size()==1 && matrix.at(0).size()==1){
+         return matrix.at(0).at(0)==target;
+     }
+
      int maxrow=matrix.size()-1;
      int maxcol=matrix.at(0).size()-1;
-     int i=maxrow;
-     int j=maxcol;
 
-     int leftx=0;
-     int lefty=0;
-     int rightx=maxrow;
-     int righty=maxcol;
-     while(leftx<rightx || lefty<righty){
+     stack<int> stackLeftX;
+     stack<int> stackRightX;
+     stack<int> stackLeftY;
+     stack<int> stackRightY;
+
+     stackLeftX.push(0);
+     stackRightX.push(maxrow);
+     stackLeftY.push(0);
+     stackRightY.push(maxcol);
+
+
+     while(!stackLeftX.empty()){
+
+         int leftx=stackLeftX.top();
+         int lefty=stackLeftY.top();
+         int rightx=stackRightX.top();
+         int righty=stackRightY.top();
+         maxrow=rightx;
+         maxcol=righty;
+         int i=maxrow;
+         int j=maxcol;
+         stackLeftX.pop();
+         stackRightX.pop();
+         stackLeftY.pop();
+         stackRightY.pop();
+         while(leftx<=rightx || lefty<=righty){
          int v=matrix.at(i).at(j);
          if(v>target){
              rightx=i;
@@ -257,20 +281,39 @@ bool Leetcode::searchMatrix(vector<vector<int> > &matrix, int target)
              leftx=i;
              lefty=j;
          }else{
+             std::cout<<"found,("<<i<<","<<j<<"),dst:"<<target<<std::endl;
              return true;
          }
          i=(leftx+rightx)/2;
          j=(lefty+righty)/2;
-         if(rightx-leftx==1 && righty-lefty==1 &&rightx<=maxrow && righty<=maxcol){
-             for(int xadd=0;xadd<2;xadd++){
-                 for(int yadd=0;yadd<2;yadd++){
-                     if(matrix.at(i+xadd).at(i+yadd)==target)
-                         return true;
-                 }
+         std::cout<<"left("<<leftx<<","<<lefty<<"),right("<<rightx<<","<<righty<<"),"<<"v:"<<v<<",dst:"<<target<<",("<<i<<","<<j<<")"<<std::endl;
+         int sum=(rightx-leftx) + (righty-lefty);
+         int mul=(rightx-leftx) * (righty-lefty);
+         if( sum==0 || sum==1 || mul==1){
+             if(leftx+1<=maxrow && righty-1>0){
+                 stackLeftX.push(leftx+1);
+                 stackLeftY.push(0);
+                 stackRightX.push(maxrow);
+                 stackRightY.push(righty-1);
              }
+
+             if(lefty+1<=maxcol && rightx-1>0){
+                 stackLeftX.push(0);
+                 stackLeftY.push(lefty+1);
+                 stackRightX.push(rightx-1);
+                 stackRightY.push(maxcol);
+             }
+
+             break;
+         }
+
          }
 
      }
+
+
+
+
 
      return false;
 }

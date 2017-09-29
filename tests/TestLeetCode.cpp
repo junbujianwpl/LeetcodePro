@@ -158,6 +158,9 @@ bool TestLeetCode::search2DMatrixTest()
                                {18,21,23,26,30}
                            });
 
-    std::cout<<Leetcode::searchMatrix(v,16)<<std::endl;
+    print_2d_vec(v);
+    for(int i=0;i<v.size();i++)
+        for(int j=0;j<v.at(i).size();j++)
+        std::cout<<Leetcode::searchMatrix(v,v[i][j])<<std::endl;
 
 }
