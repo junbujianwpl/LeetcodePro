@@ -124,6 +124,11 @@ public:
     static std::vector<std::vector<UINT> > getTwoPrimeSumFactor(UINT sum, bool withOne=false);
 
 
+////*****************************************Miscellaneous********************************************////
+    static int findNthDigit(int n);
+
+    static int digitsUntilN(int n);
+
 
 };
 

@@ -164,3 +164,36 @@ bool TestLeetCode::search2DMatrixTest()
         std::cout<<Leetcode::searchMatrix(v,v[i][j])<<std::endl;
 
 }
+
+int TestLeetCode::digitsUntilNTest()
+{
+    int in[]={1,4,10,12,13,14,20};
+    for(int i=0;i<ARR_SIZE(in);i++){
+        int num=in[i];
+        std::cout<<num<<","<<Leetcode::digitsUntilN(num)<<std::endl;
+    }
+    return 1;
+
+}
+
+int TestLeetCode::nThDigitTest()
+{
+    string s;
+    for(int i=1;i<20;i++){
+        char sz[10];
+        sprintf(sz,"%d",i);
+        s+=sz;
+    }
+    for(int i=0;i<s.size();i++){
+        std::cout<<i+1<<":"<<s.at(i)<<",";
+    }
+    std::cout<<std::endl;
+    int in[]={1,4,10,12,13,14,20};
+    for(int i=0;i<ARR_SIZE(in);i++){
+        int num=in[i];
+        std::cout<<num<<","<<Leetcode::findNthDigit(num)<<std::endl;
+    }
+    return 1;
+
+
+}

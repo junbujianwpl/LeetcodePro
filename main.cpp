@@ -22,13 +22,15 @@ int main(int argc,char** argv){
 //    TestLeetCode::delSameInSortedArrMaxBetterTest();
 //    TestLeetCode::getPrimeTest();
 //    TestLeetCode::getPrimeSumFactorTest();
-    TestLeetCode::sqrtTest();
-    TestLeetCode::cubeRootTest();
-    TestLeetCode::getTwoSortArrMediaTest();
+//    TestLeetCode::sqrtTest();
+//    TestLeetCode::cubeRootTest();
+//    TestLeetCode::getTwoSortArrMediaTest();
 
-    TestSortAlgorithmn::qsortTest();
+//    TestSortAlgorithmn::qsortTest();
 
-    TestLeetCode::search2DMatrixTest();
+//    TestLeetCode::search2DMatrixTest();
 
+    TestLeetCode::digitsUntilNTest();
+    TestLeetCode::nThDigitTest();
 
 }
