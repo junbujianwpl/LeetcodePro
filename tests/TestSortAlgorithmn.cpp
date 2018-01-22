@@ -9,8 +9,9 @@ TestSortAlgorithmn::TestSortAlgorithmn()
 
 void TestSortAlgorithmn::qsortTest()
 {
-    vector<int> v({1,3,4,2,999,22,44,22,1,3245,5654,232,65,24332,34234,150});
-    SortAlgorithmn::quickSort(v);
+    vector<int> v({1,3,4,2,999,2,8,3,6,7,22,44,22,1,3245,5654,232,65,24332,34234,150});
+//    SortAlgorithmn::quickSort(v);
+    SortAlgorithmn::qsort(v,v.begin(),v.end());
     print_arr(v,v.size());
 
 }

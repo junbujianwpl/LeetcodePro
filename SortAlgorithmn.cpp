@@ -97,6 +97,50 @@ int SortAlgorithmn::quickSort(vector<int> &v)
 
 }
 
+int SortAlgorithmn::qsort(vector<int> &v, vector<int>::iterator l, vector<int>::iterator r)
+{
+    if(v.size()<2 || l>=r){
+        return 1;
+    }
+    int runtimes=1;
+
+    vector<int>::iterator i=l;
+    vector<int>::iterator j=r-1;
+    int tmp=0;
+
+    while(i<j){
+        ++runtimes;
+        while(*i<=*j && i<j){
+            ++i;
+            ++runtimes;
+        }
+
+        if(i<j){
+            tmp=*i;
+            *i=*j;
+            *j=tmp;
+            --j;
+        }
+
+        while(*i<=*j && i<j){
+            --j;
+            ++runtimes;
+        }
+
+        if(i<j){
+            tmp=*i;
+            *i=*j;
+            *j=tmp;
+            ++i;
+        }
+    }
+
+    runtimes+=qsort(v,l,i);
+    runtimes+=qsort(v,++i,r);
+
+    return runtimes;
+}
+
 int SortAlgorithmn::heapSort(int *arr, int len)
 {
     int times=0;

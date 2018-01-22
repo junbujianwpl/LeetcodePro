@@ -3,14 +3,20 @@
 #include "common.h"
 #include "tests/TestLeetCode.h"
 #include "tests/TestSortAlgorithmn.h"
+#include <vector>
+using std::vector;
 
 int main(int argc,char** argv){
 
     std::cout<<"hello world"<<std::endl;
     int arr[]={1,2,9,2,4,5,222,29,20};
     print_arr(arr,ARR_SIZE(arr));
-    SortAlgorithmn::heapSort(arr,ARR_SIZE(arr));
-    print_arr(arr,ARR_SIZE(arr));
+
+    vector<int> v({1,2,9,2,4,5,222,29,20});
+
+    SortAlgorithmn::qsort(v,v.begin(),v.end());
+    print_arr(v,v.size());
+//    print_arr(arr,ARR_SIZE(arr));
 
     TestLeetCode::twoSumTest();
     TestLeetCode::threeSumTest();
