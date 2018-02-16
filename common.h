@@ -2,6 +2,9 @@
 #define COMMON_H
 
 #include <iostream>
+#include <string>
+
+using std::string;
 
 #define ARR_SIZE(arr) (sizeof(arr)/sizeof(arr[0]))
 

@@ -27,6 +27,9 @@ public:
 
     static bool search2DMatrixTest();
 
+    static int  digitsUntilNTest();
+    static int  nThDigitTest();
+
 
 };
 

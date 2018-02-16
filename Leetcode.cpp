@@ -69,7 +69,7 @@ std::vector<std::vector<int> > Leetcode::twoSumIndex(std::vector<int> arr, int d
 
     std::vector<std::vector<int> > vals=twoSum(arr,dst,times);
     foreach (std::vector<int> vv, vals) {
-    std::vector<int> t;
+        std::vector<int> t;
         foreach (int v, vv) {
             t.push_back((*index.find(v)).second);
         }
@@ -97,12 +97,12 @@ std::vector<std::vector<int> > Leetcode::threeSum(std::vector<int> arr, int dst,
     int tmp=0;
 
     for(int i=0;i<arr.size()-2;i++){
-       std::vector<std::vector<int> > vv=twoSum(std::vector<int>(arr.begin()+i,arr.end()),dst-arr.at(i),&tmp);
-       foreach (std::vector<int> v, vv) {
-          v.push_back(arr.at(i));
-          result.push_back(v);
-       }
-       runtimes+=tmp;
+        std::vector<std::vector<int> > vv=twoSum(std::vector<int>(arr.begin()+i,arr.end()),dst-arr.at(i),&tmp);
+        foreach (std::vector<int> v, vv) {
+            v.push_back(arr.at(i));
+            result.push_back(v);
+        }
+        runtimes+=tmp;
     }
 
     if(NULL != times){
@@ -201,7 +201,7 @@ float Leetcode::getMedianOfTwoSortedArr(int *nums1, int len, int *nums2, int len
                 ++idx;
             }
         }
-         ++runtimes;
+        ++runtimes;
     }
 
     double ret=0.0;
@@ -234,45 +234,88 @@ int Leetcode::getHIndexOfPaper(vector<int> &citations)
 bool Leetcode::searchMatrix(vector<vector<int> > &matrix, int target)
 {
     if(matrix.empty()){
-         return false;
-     }
-     if(matrix.at(0).empty()){
-         return false;
-     }
-     int maxrow=matrix.size()-1;
-     int maxcol=matrix.at(0).size()-1;
-     int i=maxrow;
-     int j=maxcol;
+        return false;
+    }
+    if(matrix.at(0).empty()){
+        return false;
+    }
 
-     int leftx=0;
-     int lefty=0;
-     int rightx=maxrow;
-     int righty=maxcol;
-     while(leftx<rightx || lefty<righty){
-         int v=matrix.at(i).at(j);
-         if(v>target){
-             rightx=i;
-             righty=j;
-         }else if(v<target){
-             leftx=i;
-             lefty=j;
-         }else{
-             return true;
-         }
-         i=(leftx+rightx)/2;
-         j=(lefty+righty)/2;
-         if(rightx-leftx==1 && righty-lefty==1 &&rightx<=maxrow && righty<=maxcol){
-             for(int xadd=0;xadd<2;xadd++){
-                 for(int yadd=0;yadd<2;yadd++){
-                     if(matrix.at(i+xadd).at(i+yadd)==target)
-                         return true;
-                 }
-             }
-         }
+    if(matrix.size()==1 && matrix.at(0).size()==1){
+        return matrix.at(0).at(0)==target;
+    }
 
-     }
+    int maxrow=matrix.size()-1;
+    int maxcol=matrix.at(0).size()-1;
 
-     return false;
+    stack<int> stackLeftX;
+    stack<int> stackRightX;
+    stack<int> stackLeftY;
+    stack<int> stackRightY;
+
+    stackLeftX.push(0);
+    stackRightX.push(maxrow);
+    stackLeftY.push(0);
+    stackRightY.push(maxcol);
+
+
+    while(!stackLeftX.empty()){
+
+        int leftx=stackLeftX.top();
+        int lefty=stackLeftY.top();
+        int rightx=stackRightX.top();
+        int righty=stackRightY.top();
+        maxrow=rightx;
+        maxcol=righty;
+        int i=maxrow;
+        int j=maxcol;
+        stackLeftX.pop();
+        stackRightX.pop();
+        stackLeftY.pop();
+        stackRightY.pop();
+        while(leftx<=rightx || lefty<=righty){
+            int v=matrix.at(i).at(j);
+            if(v>target){
+                rightx=i;
+                righty=j;
+            }else if(v<target){
+                leftx=i;
+                lefty=j;
+            }else{
+                std::cout<<"found,("<<i<<","<<j<<"),dst:"<<target<<std::endl;
+                return true;
+            }
+            i=(leftx+rightx)/2;
+            j=(lefty+righty)/2;
+            std::cout<<"left("<<leftx<<","<<lefty<<"),right("<<rightx<<","<<righty<<"),"<<"v:"<<v<<",dst:"<<target<<",("<<i<<","<<j<<")"<<std::endl;
+            int sum=(rightx-leftx) + (righty-lefty);
+            int mul=(rightx-leftx) * (righty-lefty);
+            if( sum==0 || sum==1 || mul==1){
+                if(leftx+1<=maxrow && righty-1>0){
+                    stackLeftX.push(leftx+1);
+                    stackLeftY.push(0);
+                    stackRightX.push(maxrow);
+                    stackRightY.push(righty-1);
+                }
+
+                if(lefty+1<=maxcol && rightx-1>0){
+                    stackLeftX.push(0);
+                    stackLeftY.push(lefty+1);
+                    stackRightX.push(rightx-1);
+                    stackRightY.push(maxcol);
+                }
+
+                break;
+            }
+
+        }
+
+    }
+
+
+
+
+
+    return false;
 }
 
 UINT Leetcode::getPrime(UINT idx)
@@ -363,5 +406,48 @@ std::vector<std::vector<UINT> > Leetcode::getTwoPrimeSumFactor(UINT sum, bool wi
         }
     }
     return result;
+}
+
+int Leetcode::findNthDigit(int n)
+{
+    //Find the nth digit of the infinite integer sequence 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, ...
+    int left=0;
+    int right=n;
+    int pos=n/2;
+    while(right-left>1){
+        int val =digitsUntilN(pos);
+        if(val<n){
+            left=pos;
+            pos=(pos+right)/2;
+        }else if(val>n){
+            right=pos;
+            pos=(pos+left)/2;
+        }else{
+            return pos%10;
+        }
+    }
+    int remain=n-digitsUntilN(right-1);
+
+    return right;
+}
+
+int Leetcode::digitsUntilN(int n)
+{
+    if(n<1)
+        return 0;
+
+    vector<int> dig;
+    int num=n;
+    do{
+        int minDig=num%10;
+        dig.push_back(minDig);
+        num=num/10;
+    }while(num!=0);
+
+    int ret=dig.size()*(n-pow(10,dig.size()-1)+1);
+    for(int i=0;i<dig.size()-1;i++){
+        ret+=(9*pow(10,i));
+    }
+    return ret;
 }
 
