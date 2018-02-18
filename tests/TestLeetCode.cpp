@@ -6,7 +6,7 @@
 static std::vector<std::vector<int> >result;
 static int arr[]={2,1,7,9,22,5,5,3,4,6,4,9,8,99,88,22,10,5,7,1,7,6,4,4,3,2,4,3,6,8,7,9,7,8};
 
-static print_2d_vec(std::vector<std::vector<int> > in){
+static void print_2d_vec(std::vector<std::vector<int> > in){
 
     foreach (std::vector<int> v, in) {
         foreach (int i, v) {
@@ -17,7 +17,7 @@ static print_2d_vec(std::vector<std::vector<int> > in){
 }
 
 template<typename T>
-static print_2d_vec_temp(std::vector<std::vector<T> > in){
+static void print_2d_vec_temp(std::vector<std::vector<T> > in){
 
     foreach (std::vector<T> v, in) {
         foreach (T i, v) {

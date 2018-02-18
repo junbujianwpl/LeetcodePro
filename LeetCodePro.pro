@@ -31,14 +31,18 @@ SOURCES += \
     tests/TestSortAlgorithmn.cpp \
     main.cpp \
     Leetcode.cpp \
-    tests/TestLeetCode.cpp
+    tests/TestLeetCode.cpp \
+    BallWeigher.cpp \
+    Combination.cpp
 
 HEADERS += \
     common.h \
     SortAlgorithmn.h \
     tests/TestSortAlgorithmn.h \
     Leetcode.h \
-    tests/TestLeetCode.h
+    tests/TestLeetCode.h \
+    BallWeigher.h \
+    Combination.h
 
 FORMS +=
 
