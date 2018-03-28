@@ -247,67 +247,57 @@ bool Leetcode::searchMatrix(vector<vector<int> > &matrix, int target)
     int maxrow=matrix.size()-1;
     int maxcol=matrix.at(0).size()-1;
 
-    stack<int> stackLeftX;
-    stack<int> stackRightX;
-    stack<int> stackLeftY;
-    stack<int> stackRightY;
+    stack<int> stackLow({0,0});
+    stack<int> stackHigh({maxrow,maxcol});
+    stack<int> stackFix({0,0});
+    stack<int> stackDirection({0,1});
 
-    stackLeftX.push(0);
-    stackRightX.push(maxrow);
-    stackLeftY.push(0);
-    stackRightY.push(maxcol);
+    int i,j;
+    while(!stackLow.empty()){
+
+        int low=stackLow.top();
+        int fix=stackFix.top();
+        int high=stackHigh.top();
+        int d=stackDirection.top();
+        stackLow.pop();
+        stackHigh.pop();
+        stackFix.pop();
+        stackDirection.pop();
+        if(low>high){
+            continue;
+        }
+        if(d == 0){
+            j=fix;
+            i=low+(high-low)/2;
+        }else{
+            i=fix;
+            j=low+(high-low)/2;
+        }
+        int v=matrix[i][j];
+//        std::cout<<target<<" "<<i<<" "<<j<<std::endl;
+        if(v == target){
+            return true;
+        }else if(v>target) {
+            stackLow.push(low);
+            stackHigh.push(low+(high-low)/2-1);
+            stackFix.push(fix);
+            stackDirection.push(d);
 
 
-    while(!stackLeftX.empty()){
+        }else{
+            stackLow.push(low+(high-low)/2+1);
+            stackHigh.push(high);
+            stackFix.push(fix);
+            stackDirection.push(d);
 
-        int leftx=stackLeftX.top();
-        int lefty=stackLeftY.top();
-        int rightx=stackRightX.top();
-        int righty=stackRightY.top();
-        maxrow=rightx;
-        maxcol=righty;
-        int i=maxrow;
-        int j=maxcol;
-        stackLeftX.pop();
-        stackRightX.pop();
-        stackLeftY.pop();
-        stackRightY.pop();
-        while(leftx<=rightx || lefty<=righty){
-            int v=matrix.at(i).at(j);
-            if(v>target){
-                rightx=i;
-                righty=j;
-            }else if(v<target){
-                leftx=i;
-                lefty=j;
-            }else{
-                std::cout<<"found,("<<i<<","<<j<<"),dst:"<<target<<std::endl;
-                return true;
-            }
-            i=(leftx+rightx)/2;
-            j=(lefty+righty)/2;
-            std::cout<<"left("<<leftx<<","<<lefty<<"),right("<<rightx<<","<<righty<<"),"<<"v:"<<v<<",dst:"<<target<<",("<<i<<","<<j<<")"<<std::endl;
-            int sum=(rightx-leftx) + (righty-lefty);
-            int mul=(rightx-leftx) * (righty-lefty);
-            if( sum==0 || sum==1 || mul==1){
-                if(leftx+1<=maxrow && righty-1>0){
-                    stackLeftX.push(leftx+1);
-                    stackLeftY.push(0);
-                    stackRightX.push(maxrow);
-                    stackRightY.push(righty-1);
-                }
-
-                if(lefty+1<=maxcol && rightx-1>0){
-                    stackLeftX.push(0);
-                    stackLeftY.push(lefty+1);
-                    stackRightX.push(rightx-1);
-                    stackRightY.push(maxcol);
-                }
-
-                break;
-            }
+            stackLow.push(fix+1);
+            stackHigh.push((d==0)?maxcol:maxrow);
+            stackFix.push((d==0)?i:j);
+            stackDirection.push(d^1);
 
         }
+
+
 
     }
 
