@@ -80,6 +80,12 @@ public:
     static  int getHIndexOfPaper(vector<int>& v);
 
 
+    /**
+     * @brief searchMatrix binary search. add binary search postions into stacks and until stack empty
+     * @param matrix
+     * @param target
+     * @return
+     */
     static  bool searchMatrix(vector<vector<int> >& matrix, int target);
 
 
