@@ -1,0 +1,8 @@
+
+install:
+        - sudo apt install libqt5-dev qt5-qmake
+
+script:
+        - qmake -project
+        - qmake LeetCodePro.pro
+        - make
