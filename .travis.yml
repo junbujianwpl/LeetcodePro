@@ -1,8 +1,17 @@
+sudo: required
+dist: trusty
+
+
+before_install:
+        - sudo add-apt-repository --yes ppa:beineri/opt-qt551-trusty
+        - sudo apt-get update -qq
 
 install:
-        - sudo apt install libqt5-dev qt5-qmake
+        - sudo apt -y install qt55[QTPACKAGE]
 
 script:
-        - qmake -project
-        - qmake LeetCodePro.pro
+        - source /opt/qt55/bin/qt55-en.sh
+        - cd src
+        - /opt/qt55/bin/qmake -project
+        - /opt/qt55/bin/qmake LeetCodePro.pro
         - make
