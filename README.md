@@ -1,6 +1,7 @@
 # LeetcodePro
 my leetcode solutions in cpp 
 
+[![Build Status](https://travis-ci.org/junbujianwpl/LeetcodePro.svg?branch=master)](https://travis-ci.org/junbujianwpl/LeetcodePro)
 
 ## Done
         * two sum
