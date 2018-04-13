@@ -348,7 +348,7 @@ int Leetcode::numMatchingSubseq(std::string S, vector<std::string> &words) {
         char c=S[i];
         auto iter=charPos.find(c);
         if(iter == charPos.end()){
-            charPos.insert(pair<char,vector<int>>(c,vector<int>({i})));
+            charPos.insert(std::pair<char,vector<int>>(c,vector<int>({i})));
         }else{
             (*iter).second.push_back(i);
         }
