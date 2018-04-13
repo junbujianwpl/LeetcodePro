@@ -6,7 +6,7 @@
 
 QT       += core gui testlib
 
-CONFIG += testcase
+CONFIG += testcase c++11
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
