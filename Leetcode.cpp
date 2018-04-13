@@ -308,6 +308,90 @@ bool Leetcode::searchMatrix(vector<vector<int> > &matrix, int target)
     return false;
 }
 
+vector<vector<int>> Leetcode::permute(vector<int>& nums) {
+
+    return permute(nums,0);
+}
+
+
+vector<vector<int>> Leetcode::permute(vector<int> &nums,int start){
+    vector<vector<int> > result;
+    if(nums.size()-start==0){
+        return result;
+    }
+    if(nums.size()-start==1){
+        result.push_back(vector<int>({nums[start]}));
+        return result;
+    }
+    for(int i=start;i<nums.size();++i){
+        int tmp=nums[start];
+        nums[start]=nums[i];
+        nums[i]=tmp;
+        vector<vector<int>> r=permute(nums,start+1);
+        for(auto i:r){
+            i.insert(i.begin(),nums[start]);
+            result.push_back(i);
+        }
+        tmp=nums[start];
+        nums[start]=nums[i];
+        nums[i]=tmp;
+    }
+    return result;
+}
+
+int Leetcode::numMatchingSubseq(std::string S, vector<std::string> &words) {
+    if(S.empty() || words.empty()){
+        return 0;
+    }
+    map<char,vector<int> > charPos;
+    for(int i=0;i<S.size();++i){
+        char c=S[i];
+        auto iter=charPos.find(c);
+        if(iter == charPos.end()){
+            charPos.insert(pair<char,vector<int>>(c,vector<int>({i})));
+        }else{
+            (*iter).second.push_back(i);
+        }
+    }
+    int count=0;
+    for(auto w:words){
+        bool get=true;
+        int findStart=-1;
+        for(auto c:w){
+            auto iter=charPos.find(c);
+            if(iter == charPos.end()){
+                get=false;
+                break;
+            }else{
+                auto vecPos=(*iter).second;
+                bool found=false;
+                for(auto pos:vecPos){
+                    if(pos>findStart){
+                        found=true;
+                        findStart=pos;
+                        break;
+                    }
+                }
+                if(!found){
+                    get=false;
+                    break;
+                }
+            }
+        }
+        if(get) count++;
+    }
+    return count;
+
+}
+
+
+
+
+
+
+
+
+
 UINT Leetcode::getPrime(UINT idx)
 {
     static std::vector<UINT> primes({2,3});

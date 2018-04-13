@@ -1,6 +1,7 @@
 #ifndef LEETCODE_H
 #define LEETCODE_H
 
+#include <bits/stdc++.h>
 #include <vector>
 #include <map>
 #include "common.h"
@@ -89,6 +90,19 @@ public:
     static  bool searchMatrix(vector<vector<int> >& matrix, int target);
 
 
+    vector<vector<int> > permute(vector<int> &nums);
+
+
+    /**
+     * @brief permute recursive make the first element fixed and calc sub array permute
+     * @param nums
+     * @param start
+     * @return
+     */
+    vector<vector<int> > permute(vector<int> &nums, int start);
+
+
+    int numMatchingSubseq(string S, vector<string>& words);
 
 
 
