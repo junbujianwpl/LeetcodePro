@@ -3,6 +3,7 @@
 #include "common.h"
 #include "tests/TestLeetCode.h"
 #include "tests/TestSortAlgorithmn.h"
+#include "tests/TestDFS.h"
 
 #include <vector>
 using std::vector;
@@ -58,9 +59,12 @@ int main(int argc,char** argv){
 
 //    TestSortAlgorithmn::qsortTest();
 
-    TestLeetCode::search2DMatrixTest();
+//    TestLeetCode::search2DMatrixTest();
 
 //    TestLeetCode::digitsUntilNTest();
 //    TestLeetCode::nThDigitTest();
+
+    TestDFS::testGetLayout();
+
 
 }

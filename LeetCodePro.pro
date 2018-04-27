@@ -34,7 +34,9 @@ SOURCES += \
     Leetcode.cpp \
     tests/TestLeetCode.cpp \
     BallWeigher.cpp \
-    Combination.cpp
+    Combination.cpp \
+    DFS.cpp \
+    tests/TestDFS.cpp
 
 HEADERS += \
     common.h \
@@ -43,7 +45,9 @@ HEADERS += \
     Leetcode.h \
     tests/TestLeetCode.h \
     BallWeigher.h \
-    Combination.h
+    Combination.h \
+    DFS.h \
+    tests/TestDFS.h
 
 FORMS +=
 
