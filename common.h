@@ -21,5 +21,8 @@ using std::string;
        std::cout<<tix<<std::endl;   \
        print_arr(arr[tix],col)  }
 
+#define print_2d_arr_compact(arr,row,col) \
+    for(int tix=0;tix<row;++tix){  \
+       print_arr(arr[tix],col)  }
 
 #endif // COMMON_H
