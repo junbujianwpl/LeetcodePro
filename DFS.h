@@ -16,6 +16,10 @@ class NQueen
 public:
     NQueen(int num = NQueen::DefaultNum);
 
+    /**
+     * @brief getLayout get NQueen layout
+     * @return  board represented by 2d-vector
+     */
     std::vector<std::vector<int> > getLayout();
 
 private:
