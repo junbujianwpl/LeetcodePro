@@ -4,6 +4,8 @@
 #include <iostream>
 #include <QObject>
 
+using namespace std;
+
 Leetcode::Leetcode()
 {
 
@@ -382,6 +384,55 @@ int Leetcode::numMatchingSubseq(std::string S, vector<std::string> &words) {
     }
     return count;
 
+}
+
+vector<vector<int> > Leetcode::partitionNearestSumSubArr(const vector<int> &arr)
+{
+    if(arr.size()<2){
+        return vector<vector<int> >({arr,vector<int>()});
+    }
+
+    vector<int> sortedArr=arr;
+    SortAlgorithmn::quickSort(sortedArr);
+
+    int sum=0;
+
+    for(const auto& i : sortedArr) sum+=i;
+
+    auto lClose=sortedArr.begin();
+    auto rOpen=sortedArr.begin()+1;
+
+    auto minDist=std::numeric_limits<int>::max();
+    int curSum=*sortedArr.begin();
+    for(auto i=sortedArr.begin(),j=sortedArr.begin()+1;i<j && j<=sortedArr.end();){
+        int curDist=curSum*2-sum;
+        cout<<*i<<" "<<*j<<" "<<curSum<<endl;
+        if(abs(curDist)<minDist){
+            lClose=i;
+            rOpen=j;
+            minDist=abs(curDist);
+            if(minDist == 0) break;
+        }
+        if(curDist>0){
+            curSum-=(*i);
+            ++i;
+        }else if(curDist<0){
+            curSum+=(*j);
+            ++j;
+        }else{
+            lClose=i;
+            rOpen=j;
+            break;
+        }
+    }
+
+    vector<int> first;
+    first.assign(lClose,rOpen);
+    sortedArr.erase(lClose,rOpen);;
+
+    cout<<curSum<<" "<<sum<<endl;
+
+    return vector<vector<int> >({first,sortedArr});
 }
 
 

@@ -197,3 +197,15 @@ int TestLeetCode::nThDigitTest()
 
 
 }
+
+void TestLeetCode::partionNearestSubArray()
+{
+    vector<int> v;
+    v.assign(arr,&arr[1]);
+//    v.assign(arr,&arr[5]);
+//    v.assign(arr,&arr[ARR_SIZE(arr)-1]);
+    vector<vector<int> > result=Leetcode::partitionNearestSumSubArr(v);
+    print_2d_vec(result);
+
+
+}

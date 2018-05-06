@@ -110,6 +110,13 @@ public:
      */
     int numMatchingSubseq(string S, vector<string>& words);
 
+    /**
+     * @brief partitionNearestSumSubArr  partition a array to two sub array,whose sum are nearest
+     * @param arr     input arr
+     * @return        output subarr
+     */
+    static vector<vector<int> > partitionNearestSumSubArr(const vector<int>& arr);
+
 
 
 ////*****************************************Examinations********************************************////

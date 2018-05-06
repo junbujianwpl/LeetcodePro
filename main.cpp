@@ -64,7 +64,9 @@ int main(int argc,char** argv){
 //    TestLeetCode::digitsUntilNTest();
 //    TestLeetCode::nThDigitTest();
 
-    TestDFS::testGetLayout();
+//    TestDFS::testGetLayout();
+
+    TestLeetCode::partionNearestSubArray();
 
 
 }
