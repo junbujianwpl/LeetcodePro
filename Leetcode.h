@@ -102,6 +102,12 @@ public:
     vector<vector<int> > permute(vector<int> &nums, int start);
 
 
+    /**
+     * @brief numMatchingSubseq get number of matching subseq of words in S
+     * @param S         searching in S
+     * @param words     search for words
+     * @return          searched ele num of words
+     */
     int numMatchingSubseq(string S, vector<string>& words);
 
 
