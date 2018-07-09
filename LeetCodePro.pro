@@ -36,7 +36,8 @@ SOURCES += \
     BallWeigher.cpp \
     Combination.cpp \
     DFS.cpp \
-    tests/TestDFS.cpp
+    tests/TestDFS.cpp \
+    YangHuiTriangle.cpp
 
 HEADERS += \
     common.h \
@@ -47,7 +48,8 @@ HEADERS += \
     BallWeigher.h \
     Combination.h \
     DFS.h \
-    tests/TestDFS.h
+    tests/TestDFS.h \
+    YangHuiTriangle.h
 
 FORMS +=
 

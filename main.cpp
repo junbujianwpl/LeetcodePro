@@ -5,6 +5,8 @@
 #include "tests/TestSortAlgorithmn.h"
 #include "tests/TestDFS.h"
 
+#include "YangHuiTriangle.h"
+
 #include <vector>
 using std::vector;
 #include "Combination.h"
@@ -66,7 +68,20 @@ int main(int argc,char** argv){
 
 //    TestDFS::testGetLayout();
 
-    TestLeetCode::partionNearestSubArray();
+//    TestLeetCode::partionNearestSubArray();
+
+    YangHuiTriangle yh(15);
+    yh.printTriangle();
+
+    std::vector<std::vector<uint32_t> > vec2d=yh.getTriangle2D();
+    std::cout<<"lines"<<vec2d.size()<<std::endl;
+    for(int i=0;i<vec2d.size();++i){
+//        std::cout<<" cur Line ele num"<<vec2d.at(i).size()<<std::endl;
+        for(int j=0;j<vec2d.at(i).size();++j){
+            std::cout<<vec2d[i][j]<<" ";
+        }
+        std::cout<<std::endl;
+    }
 
 
 }
