@@ -34,7 +34,7 @@ public:
      * @param start                  start position
      * @param stop					 stop position
      * @param pos                    length (2^n)
-     * @return 						 find or not
+     * @return 						 found or not
      */
     static bool findRightShiftPos (typename std::vector<T>::iterator start,typename std::vector<T>::iterator stop,unsigned int & pos);
 
