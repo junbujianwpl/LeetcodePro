@@ -31,6 +31,7 @@ public:
     static int  nThDigitTest();
 
     static void reverseTest();
+    static void rightShiftTest();
 
 
 };

@@ -10,8 +10,9 @@ using std::vector;
 #include "BallWeigher.h"
 
 int main(int argc,char** argv){
-    TestLeetCode::reverseTest();
+    TestLeetCode::rightShiftTest();
     return 0;
+    TestLeetCode::reverseTest();
 
     Combination com(12);
     vector<vector<vector<int> > > ttt=com.getNthCombinationGroup(12,3);

@@ -4,21 +4,40 @@
 
 #include <vector>
 
+template<class T>
 class Shuffle
 {
 public:
-    Shuffle();
+    Shuffle(const std::vector<T>& vec);
 
-    template<class T>
-    static void rightCycleMove(std::vector<T> vec,typename std::vector<T>::iterator start,
-                               typename std::vector<T>::iterator split,typename std::vector<T>::iterator stop);
+    /**
+     * @brief rightCycleMove    right shift a array
+     * @param start             start position,included
+     * @param stop              stop  position,not include
+     * @param num               right shift number
+     */
+    static void rightCycleMove(typename std::vector<T>::iterator start,
+                               typename std::vector<T>::iterator stop,unsigned int num);
 
-    template<class T>
+    /**
+     * @brief reverse     reverse the span
+     * @param start       start position
+     * @param stop        stop position, not include
+     */
     static void reverse(typename std::vector<T>::iterator start,typename std::vector<T>::iterator stop);
+
+private:
+    std::vector<T> m_vecData__;				///< data tobe shuffle
 };
 
+template<class S>
+Shuffle<S>::Shuffle(const std::vector<S> &vec)
+{
+
+}
+
 template<class T>
-void Shuffle::reverse(typename std::vector<T>::iterator start, typename std::vector<T>::iterator stop)
+void Shuffle<T>::reverse(typename std::vector<T>::iterator start, typename std::vector<T>::iterator stop)
 {
     typename std::vector<T>::iterator l,r;
 
@@ -34,8 +53,9 @@ void Shuffle::reverse(typename std::vector<T>::iterator start, typename std::vec
 
 
 template<typename T>
-void Shuffle::rightCycleMove(std::vector<T> vec, typename std::vector<T>::iterator start, typename std::vector<T>::iterator split, typename std::vector<T>::iterator stop)
+void Shuffle<T>::rightCycleMove( typename std::vector<T>::iterator start, typename std::vector<T>::iterator stop, unsigned int num)
 {
+    typename std::vector<T>::iterator split= stop-num%(stop-start);
     reverse(start,split);
     reverse(split,stop);
     reverse(start,stop);

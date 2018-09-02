@@ -185,12 +185,12 @@ int TestLeetCode::nThDigitTest()
         sprintf(sz,"%d",i);
         s+=sz;
     }
-    for(int i=0;i<s.size();i++){
+    for(unsigned int i=0;i<s.size();i++){
         std::cout<<i+1<<":"<<s.at(i)<<",";
     }
     std::cout<<std::endl;
     int in[]={1,4,10,12,13,14,20};
-    for(int i=0;i<ARR_SIZE(in);i++){
+    for(unsigned int i=0;i<ARR_SIZE(in);i++){
         int num=in[i];
         std::cout<<num<<","<<Leetcode::findNthDigit(num)<<std::endl;
     }
@@ -202,12 +202,23 @@ int TestLeetCode::nThDigitTest()
 void TestLeetCode::reverseTest()
 {
     vector<int> vec(10,0);
-    for(int i=0;i<vec.size();++i){
+    for(unsigned int i=0;i<vec.size();++i){
         vec[i]=i+1;
     }
 
-    Shuffle::reverse<int>(vec.begin(),vec.end());
+    Shuffle<int>::reverse(vec.begin(),vec.end());
     print_arr(vec,vec.size());
 
+
+}
+
+void TestLeetCode::rightShiftTest()
+{
+    vector<int> vec(10,0);
+    for(unsigned int i=0;i<vec.size();++i){
+        vec[i]=i+1;
+    }
+    Shuffle<int>::rightCycleMove(vec.begin(),vec.end(),22);
+    print_arr(vec,vec.size());
 
 }
