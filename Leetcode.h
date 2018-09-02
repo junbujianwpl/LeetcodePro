@@ -1,6 +1,7 @@
 #ifndef LEETCODE_H
 #define LEETCODE_H
 
+#include <bits/stdc++.h>
 #include <vector>
 #include <map>
 #include "common.h"
@@ -80,9 +81,41 @@ public:
     static  int getHIndexOfPaper(vector<int>& v);
 
 
+    /**
+     * @brief searchMatrix binary search. add binary search postions into stacks and until stack empty
+     * @param matrix
+     * @param target
+     * @return
+     */
     static  bool searchMatrix(vector<vector<int> >& matrix, int target);
 
 
+    vector<vector<int> > permute(vector<int> &nums);
+
+
+    /**
+     * @brief permute recursive make the first element fixed and calc sub array permute
+     * @param nums
+     * @param start
+     * @return
+     */
+    vector<vector<int> > permute(vector<int> &nums, int start);
+
+
+    /**
+     * @brief numMatchingSubseq get number of matching subseq of words in S
+     * @param S         searching in S
+     * @param words     search for words
+     * @return          searched ele num of words
+     */
+    int numMatchingSubseq(string S, vector<string>& words);
+
+    /**
+     * @brief partitionNearestSumSubArr  partition a array to two sub array,whose sum are nearest
+     * @param arr     input arr
+     * @return        output subarr
+     */
+    static vector<vector<int> > partitionNearestSumSubArr(const vector<int>& arr);
 
 
 

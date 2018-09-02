@@ -6,7 +6,7 @@
 
 QT       += core gui testlib
 
-CONFIG += testcase
+CONFIG += testcase c++11
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -24,7 +24,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
-DISTFILES += *.txt
+DISTFILES += *.txt \
+    .travis.yml
 
 SOURCES += \
     SortAlgorithmn.cpp \
@@ -35,6 +36,9 @@ SOURCES += \
     BallWeigher.cpp \
     Combination.cpp \
     Shuffle.cpp
+    DFS.cpp \
+    tests/TestDFS.cpp \
+    YangHuiTriangle.cpp
 
 HEADERS += \
     common.h \
@@ -45,6 +49,9 @@ HEADERS += \
     BallWeigher.h \
     Combination.h \
     Shuffle.h
+    DFS.h \
+    tests/TestDFS.h \
+    YangHuiTriangle.h
 
 FORMS +=
 
