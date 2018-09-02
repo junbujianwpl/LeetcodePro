@@ -199,7 +199,6 @@ int TestLeetCode::nThDigitTest()
 
 }
 
-<<<<<<< HEAD
 void TestLeetCode::reverseTest()
 {
     vector<int> vec(10,0);
@@ -236,7 +235,9 @@ void TestLeetCode::shuffleTest()
         vec=shuffle.getData();
         print_arr(vec,vec.size());
     }
-=======
+
+}
+
 void TestLeetCode::partionNearestSubArray()
 {
     vector<int> v;
@@ -247,5 +248,4 @@ void TestLeetCode::partionNearestSubArray()
     print_2d_vec(result);
 
 
->>>>>>> fadd4321319658ff70b762914c853ad2a9e25853
 }

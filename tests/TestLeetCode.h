@@ -30,14 +30,11 @@ public:
     static int  digitsUntilNTest();
     static int  nThDigitTest();
 
-<<<<<<< HEAD
     static void reverseTest();
     static void rightShiftTest();
     static void shuffleTest();
 
-=======
     static void partionNearestSubArray();
->>>>>>> fadd4321319658ff70b762914c853ad2a9e25853
 
 };
 

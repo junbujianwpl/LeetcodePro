@@ -35,7 +35,7 @@ SOURCES += \
     tests/TestLeetCode.cpp \
     BallWeigher.cpp \
     Combination.cpp \
-    Shuffle.cpp
+    Shuffle.cpp \
     DFS.cpp \
     tests/TestDFS.cpp \
     YangHuiTriangle.cpp
@@ -48,7 +48,7 @@ HEADERS += \
     tests/TestLeetCode.h \
     BallWeigher.h \
     Combination.h \
-    Shuffle.h
+    Shuffle.h \
     DFS.h \
     tests/TestDFS.h \
     YangHuiTriangle.h
