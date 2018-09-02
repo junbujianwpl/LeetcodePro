@@ -117,11 +117,12 @@ bool Shuffle<T>::splitInto2Part(typename std::vector<T>::iterator start, typenam
 template<class T>
 bool Shuffle<T>::shuffle(typename std::vector<T>::iterator start, typename std::vector<T>::iterator stop)
 {
-    typename std::vector<T>::iterator middle,iter;
+    typename std::vector<T>::iterator middle=stop;
     if(!splitInto2Part(start,stop,middle)) return false;
 
     int num = middle-start;
-    if(num<0) return false;
+    if(num==0) 		 return true;
+    else if(num <0) 			 return false;
 
     int nLog=log(num+1)/log(3);
     if(pow(3,nLog)-1 !=num) return false;
