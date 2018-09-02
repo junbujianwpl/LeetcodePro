@@ -33,7 +33,8 @@ SOURCES += \
     Leetcode.cpp \
     tests/TestLeetCode.cpp \
     BallWeigher.cpp \
-    Combination.cpp
+    Combination.cpp \
+    Shuffle.cpp
 
 HEADERS += \
     common.h \
@@ -42,7 +43,8 @@ HEADERS += \
     Leetcode.h \
     tests/TestLeetCode.h \
     BallWeigher.h \
-    Combination.h
+    Combination.h \
+    Shuffle.h
 
 FORMS +=
 

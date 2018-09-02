@@ -1,6 +1,7 @@
 #include "TestLeetCode.h"
 #include <QObject>
 #include "SortAlgorithmn.h"
+#include "Shuffle.h"
 
 
 static std::vector<std::vector<int> >result;
@@ -194,6 +195,19 @@ int TestLeetCode::nThDigitTest()
         std::cout<<num<<","<<Leetcode::findNthDigit(num)<<std::endl;
     }
     return 1;
+
+
+}
+
+void TestLeetCode::reverseTest()
+{
+    vector<int> vec(10,0);
+    for(int i=0;i<vec.size();++i){
+        vec[i]=i+1;
+    }
+
+    Shuffle::reverse<int>(vec.begin(),vec.end());
+    print_arr(vec,vec.size());
 
 
 }

@@ -3,6 +3,7 @@
 #include "SortAlgorithmn.h"
 #include <iostream>
 #include <QObject>
+#include <math.h>
 
 Leetcode::Leetcode()
 {

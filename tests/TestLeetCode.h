@@ -30,6 +30,8 @@ public:
     static int  digitsUntilNTest();
     static int  nThDigitTest();
 
+    static void reverseTest();
+
 
 };
 
