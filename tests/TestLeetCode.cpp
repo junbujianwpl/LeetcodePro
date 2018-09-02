@@ -222,3 +222,17 @@ void TestLeetCode::rightShiftTest()
     print_arr(vec,vec.size());
 
 }
+
+void TestLeetCode::shuffleTest()
+{
+    for(int k=2;k<40;k+=2){
+        vector<int> vec(k,0);
+        for(unsigned int i=0;i<vec.size();++i){
+            vec[i]=i+1;
+        }
+        Shuffle<int> shuffle(vec);
+        std::cout<<shuffle.shuffle()<<std::endl;
+        vec=shuffle.getData();
+        print_arr(vec,vec.size());
+    }
+}

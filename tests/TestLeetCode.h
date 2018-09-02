@@ -32,6 +32,7 @@ public:
 
     static void reverseTest();
     static void rightShiftTest();
+    static void shuffleTest();
 
 
 };
