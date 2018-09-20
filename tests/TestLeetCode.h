@@ -38,6 +38,12 @@ public:
 
     static void reverseIntegerTest();
 
+    static void findKthTest();
+
+    static void binSearchTest();
+    static void binSearchRotateTest();
+
+    static void twoSumTestLeet();
 };
 
 #endif // TESTLEETCODE_H

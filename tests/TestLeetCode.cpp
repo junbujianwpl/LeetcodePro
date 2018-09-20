@@ -3,6 +3,8 @@
 #include "SortAlgorithmn.h"
 #include "Shuffle.h"
 
+using namespace std;
+
 
 static std::vector<std::vector<int> >result;
 static int arr[]={2,1,7,9,22,5,5,3,4,6,4,9,8,99,88,22,10,5,7,1,7,6,4,4,3,2,4,3,6,8,7,9,7,8};
@@ -258,4 +260,48 @@ void TestLeetCode::reverseIntegerTest()
         int x=Leetcode::reverseInteger(i);
         std::cout<<i<<" "<<x<<std::endl;
     }
+}
+
+void TestLeetCode::findKthTest()
+{
+    vector<int> A({1,2,3,5,6,7}) ;
+    vector<int> B({1,3,5,7,9,20,48,100}) ;
+    print_arr(A,A.size());
+    print_arr(B,B.size());
+    for(uint i=1;i<=A.size()+B.size();++i){
+        std::cout<<i<<"  "<<Leetcode::findKth(A.begin(),A.size(),B.begin(),B.size(),i)<<std::endl;
+    }
+}
+
+void TestLeetCode::binSearchTest()
+{
+    vector<int> A({1,2,3,4,5,6,7,7,9,20,100});
+    print_arr(A,A.size());
+    for(auto i:A){
+        std::cout<<i<<" "<<Leetcode::binarySearch(A,i)<<std::endl;
+    }
+}
+
+void TestLeetCode::binSearchRotateTest()
+{
+    vector<int> A({5,6,7,8,9,20,100,200,201,202,203,1,2,3,4});
+    print_arr(A,A.size());
+    for(auto i:A){
+        std::cout<<i<<" "<<Leetcode::binarySearchFromRotate(A,i)<<std::endl;
+    }
+
+}
+
+void TestLeetCode::twoSumTestLeet()
+{
+//    vector<int> v({1,2,3,4,56,56,565,4});
+//    vector<int> v({3,2,4,1,2,3,4,5,6,99,88,77});
+    vector<int> v({230,863,916,585,981,404,316,785,88,12,70,435,384,778,887,755,740,337,86,92,325,422,815,650,920,125,277,336,221,847,168,23,677,61,400,136,874,363,394,199,863,997,794,587,124,321,212,957,764,173,314,422,927,783,930,282,306,506,44,926,691,568,68,730,933,737,531,180,414,751,28,546,60,371,493,370,527,387,43,541,13,457,328,227,652,365,430,803,59,858,538,427,583,368,375,173,809,896,370,789});
+//    int dst=542;
+//    SortAlgorithmn::qsort(v,v.begin(),v.end());
+    int dst=100;
+    for(auto i: Leetcode::twoSumIndexLeet(v,dst)){
+        std::cout<<i<<std::endl;
+    }
+
 }

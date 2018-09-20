@@ -6,13 +6,35 @@
 #include "tests/TestDFS.h"
 
 #include "YangHuiTriangle.h"
-
+#include "ComputerBase.h"
 #include <vector>
 using std::vector;
 #include "Combination.h"
 #include "BallWeigher.h"
+#include "tests/TestTree.h"
 
 int main(int argc,char** argv){
+
+
+    TestLeetCode::twoSumTestLeet();
+    return 0;
+    TestLeetCode::binSearchRotateTest();
+    return 0;
+    TestLeetCode::binSearchTest();
+    return 0;
+    TestLeetCode::findKthTest();
+    return 0;
+
+    TestTree::postorderTest();
+    return 0;
+
+    ComputerBase::printIntBitStr(128);
+    ComputerBase::printIntBitStr(-128);
+    ComputerBase::printIntBitStr(std::numeric_limits<int>::min());
+    ComputerBase::printIntBitStr(std::numeric_limits<int>::max());
+    std::cout<<std::numeric_limits<int>::max()-std::numeric_limits<int>::max()/10*10<<std::endl;
+    std::cout<<std::numeric_limits<int>::min()-std::numeric_limits<int>::min()/10*10<<std::endl;
+    return 0;
     TestLeetCode::reverseIntegerTest();
     return 0;
     TestLeetCode::shuffleTest();

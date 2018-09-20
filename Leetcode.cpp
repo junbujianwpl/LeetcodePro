@@ -82,6 +82,80 @@ std::vector<std::vector<int> > Leetcode::twoSumIndex(std::vector<int> arr, int d
     return result;
 }
 
+vector<int> Leetcode::twoSumIndexLeet(vector<int> &nums, int target)
+{
+    vector<int> res;
+    vector<int> pos(nums.size(),0);
+    for(uint i=0;i<nums.size();++i){
+        pos[i]=i;
+    }
+
+    stack<vector<int>::iterator> stackStart;
+    stack<vector<int>::iterator> stackMap;
+    stack<int> stackLen;
+    stackStart.push(nums.begin());
+    stackLen.push(nums.size());
+    stackMap.push(pos.begin());
+
+    while(!stackLen.empty()){
+        auto v=stackStart.top();
+        auto len=stackLen.top();
+        auto m=stackMap.top();
+
+        stackStart.pop();
+        stackLen.pop();
+        stackMap.pop();
+
+        int i=0,j=len;
+        if(j<=1) continue;
+
+        std::cout<<"sentinel "<<*(v+j-1)<<std::endl;
+        print_arr(v,len);
+
+        while(i<j-1){
+            while(i<j-1 && *(v+i)<=*(v+j-1)) ++i;
+            if(i<j-1) {
+                swap(*(v+i),*(v+j-1));
+                swap(*(m+i),*(m+j-1));
+                --j;
+            }
+
+            while(i<j-1 && *(v+i)<=*(v+j-1)) --j;
+            if(i<j-1) {
+                swap(*(v+i),*(v+j-1));
+                swap(*(m+i),*(m+j-1));
+                ++i;
+            }
+
+        }
+        print_arr(v,len);
+        std::cout<<"CUT "<<i<<std::endl;
+
+        stackStart.push(v);
+        stackMap.push(m);
+        stackLen.push(i);
+        stackStart.push(v+i);
+        stackMap.push(m+i);
+        stackLen.push(len-i);
+    }
+
+    int i=0,j=nums.size();
+    while(i<j){
+        int sum=nums[i]+nums[j-1];
+        if(sum==target){
+            res.push_back(pos[i]);
+            res.push_back(pos[j-1]);
+            break;
+        }else if(sum<target){
+            ++i;
+        }else{
+            --j;
+        }
+    }
+
+    return res;
+}
+
 std::vector<std::vector<int> > Leetcode::threeSum(std::vector<int> arr, int dst, int *times)
 {
     //return all three sum pairs whos sum equals dst. O(n)=n*n;
@@ -311,6 +385,62 @@ bool Leetcode::searchMatrix(vector<vector<int> > &matrix, int target)
     return false;
 }
 
+int Leetcode::findKth(vector<int>::const_iterator A, int m, vector<int>::const_iterator B, int n, int k)
+{
+    assert(k<=m+n && k>0);
+    if(m>n) return findKth(B,n,A,m,k);
+    if(k==1) return std::min(*B,*A);
+    if(m==0) return *(B+k-1);
+
+    int ia=std::min(k/2,m),ib=k-ia;
+    if(*(A+ia-1)<*(B+ib-1)) return findKth(A+ia,m-ia,B,ib,k-ia);
+    else if(*(A+ia-1)>*(B+ib-1)) return findKth(A,m,B+ib,n-ib,k-ib);
+    else return *(A+ia-1);
+}
+
+int Leetcode::binarySearch(vector<int> v, int dst)
+{
+    int i=0,j=v.size();
+    while(i<j){
+        int pos=(i+j)/2;
+        if(v[pos]==dst) return pos;
+        else if(v[pos]>dst) j=pos;
+        else i=pos+1;
+    }
+    return -1;
+}
+
+int Leetcode::binarySearchFromRotate(vector<int>nums, int target)
+{
+    int begin=0,end=nums.size(),mid;
+    while(begin<end){
+        mid=(begin+end)/2;
+        if(nums[mid]==target) return mid;
+        if(nums[mid]>=nums[begin] && nums[mid]>=nums[end-1] ){
+            if(nums[mid]<target){
+                begin=mid+1;
+            }else if(target>=nums[begin]){
+                end=mid;
+            }else{
+                begin=mid+1;
+            }
+        }else if(nums[mid]<=nums[begin] && nums[mid]<=nums[end-1]){
+            if(nums[mid]>target){
+                end=mid;
+            }else if(target<=nums[end-1]){
+                begin=mid+1;
+            }else{
+                end=mid;
+            }
+        }else{
+            if(nums[mid]>target) end=mid;
+            else  begin=mid+1;
+        }
+
+    }
+    return -1;
+}
+
 vector<vector<int>> Leetcode::permute(vector<int>& nums) {
 
     return permute(nums,0);
@@ -326,7 +456,7 @@ vector<vector<int>> Leetcode::permute(vector<int> &nums,int start){
         result.push_back(vector<int>({nums[start]}));
         return result;
     }
-    for(int i=start;i<nums.size();++i){
+    for(uint i=start;i<nums.size();++i){
         int tmp=nums[start];
         nums[start]=nums[i];
         nums[i]=tmp;

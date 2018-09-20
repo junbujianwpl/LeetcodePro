@@ -38,7 +38,10 @@ SOURCES += \
     Shuffle.cpp \
     DFS.cpp \
     tests/TestDFS.cpp \
-    YangHuiTriangle.cpp
+    YangHuiTriangle.cpp \
+    ComputerBase.cpp \
+    Tree.cpp \
+    tests/TestTree.cpp
 
 HEADERS += \
     common.h \
@@ -51,7 +54,10 @@ HEADERS += \
     Shuffle.h \
     DFS.h \
     tests/TestDFS.h \
-    YangHuiTriangle.h
+    YangHuiTriangle.h \
+    ComputerBase.h \
+    Tree.h \
+    tests/TestTree.h
 
 FORMS +=
 

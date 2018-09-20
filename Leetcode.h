@@ -36,6 +36,8 @@ public:
      */
     static std::vector<std::vector<int> > twoSumIndex(std::vector<int> arr, int dst, int *times=NULL);
 
+    static vector<int> twoSumIndexLeet(vector<int>& nums, int target);
+
     /**
      * @brief threeSum        return all 3d pairs whose sum is dst
      * @param arr	      input array
@@ -88,6 +90,12 @@ public:
      * @return
      */
     static  bool searchMatrix(vector<vector<int> >& matrix, int target);
+
+
+    static int findKth(vector<int>::const_iterator A,int m,vector<int>::const_iterator B,int n,int k);
+
+    static int binarySearch(vector<int> v,int dst);
+    static int binarySearchFromRotate(vector<int> nums, int target);
 
 
     vector<vector<int> > permute(vector<int> &nums);
