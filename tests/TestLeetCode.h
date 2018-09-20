@@ -36,6 +36,8 @@ public:
 
     static void partionNearestSubArray();
 
+    static void reverseIntegerTest();
+
 };
 
 #endif // TESTLEETCODE_H

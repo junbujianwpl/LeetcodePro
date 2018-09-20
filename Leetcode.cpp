@@ -571,9 +571,34 @@ int Leetcode::digitsUntilN(int n)
     }while(num!=0);
 
     int ret=dig.size()*(n-pow(10,dig.size()-1)+1);
-    for(int i=0;i<dig.size()-1;i++){
+    for(unsigned int i=0;i<dig.size()-1;i++){
         ret+=(9*pow(10,i));
     }
     return ret;
+}
+
+int Leetcode::reverseInteger(int x)
+{
+    vector<unsigned int> digits;
+    unsigned int xAbs=abs(x);
+    unsigned int div=10;
+    for(;xAbs;xAbs/=div){
+        digits.push_back(xAbs%div);
+    }
+
+    unsigned int max=pow(2,31);
+    unsigned int reverse=0;
+    unsigned int old=0;
+    for(unsigned int i=0;i<digits.size();++i){
+        if(max-reverse<(digits[i]*pow(10,digits.size()-1-i))) return 0;
+        reverse+=(digits[i]*pow(10,digits.size()-1-i));
+        if(reverse>pow(2,31) || reverse<old) return 0;
+        old=reverse;
+    }
+
+    if(x>0 && reverse>(pow(2,31)-1)) return 0;
+    if(x<0 && reverse>(pow(2,31))) return 0;
+
+    return (int)((x>=0)?reverse:(-1*reverse));
 }
 

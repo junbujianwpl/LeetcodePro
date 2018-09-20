@@ -249,3 +249,13 @@ void TestLeetCode::partionNearestSubArray()
 
 
 }
+
+void TestLeetCode::reverseIntegerTest()
+{
+    int i=123;
+    vector<int> vecInput({1,0,12,123456,-123456789,std::numeric_limits<int>::max(),std::numeric_limits<int>::min(),1534236469});
+    for(auto i:vecInput){
+        int x=Leetcode::reverseInteger(i);
+        std::cout<<i<<" "<<x<<std::endl;
+    }
+}

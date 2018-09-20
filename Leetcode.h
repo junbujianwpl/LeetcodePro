@@ -162,6 +162,8 @@ public:
 
     static int digitsUntilN(int n);
 
+    static int reverseInteger(int x);
+
 
 };
 

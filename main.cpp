@@ -13,6 +13,8 @@ using std::vector;
 #include "BallWeigher.h"
 
 int main(int argc,char** argv){
+    TestLeetCode::reverseIntegerTest();
+    return 0;
     TestLeetCode::shuffleTest();
     return 0;
     TestLeetCode::rightShiftTest();
