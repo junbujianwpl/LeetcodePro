@@ -305,3 +305,21 @@ void TestLeetCode::twoSumTestLeet()
     }
 
 }
+
+void TestLeetCode::addTwoLinkListTest()
+{
+    vector<ListNode> v1({ListNode(1),ListNode(1),ListNode(8),ListNode(9),});
+    vector<ListNode> v2({ListNode(4),ListNode(5),ListNode(2),ListNode(9),});
+
+    vector<vector<ListNode> > vv({v1,v2});
+    for(int i=0;i<vv.size();++i ){
+        for(int j=0;j<vv[i].size()-1;++j){
+            vv[i][j].next=&vv[i][j+1];
+        }
+    }
+    ListNode *node=Leetcode::addTwoNumbers(&vv[0][0],&vv[1][0]);
+    while(node){
+        std::cout<<node->val<<std::endl;
+        node=node->next;
+    }
+}

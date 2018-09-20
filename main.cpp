@@ -16,6 +16,8 @@ using std::vector;
 int main(int argc,char** argv){
 
 
+    TestLeetCode::addTwoLinkListTest();
+    return 0;
     TestLeetCode::twoSumTestLeet();
     return 0;
     TestLeetCode::binSearchRotateTest();

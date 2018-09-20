@@ -44,6 +44,8 @@ public:
     static void binSearchRotateTest();
 
     static void twoSumTestLeet();
+
+    static void addTwoLinkListTest();
 };
 
 #endif // TESTLEETCODE_H

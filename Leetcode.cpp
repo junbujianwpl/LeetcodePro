@@ -732,3 +732,23 @@ int Leetcode::reverseInteger(int x)
     return (int)((x>=0)?reverse:(-1*reverse));
 }
 
+ListNode *Leetcode::addTwoNumbers(ListNode *l1, ListNode *l2)
+{
+    if(l1 == NULL && l2==NULL) return NULL;
+    ListNode *head=new ListNode(0);
+    ListNode **cur=&head;
+    int flow=0;
+    while(l1 || l2 || flow){
+        int sum=flow;
+        if(l1) {sum+=l1->val; l1=l1->next;}
+        if(l2) {sum+=l2->val; l2=l2->next;}
+        ListNode *p=new ListNode(sum%10);
+        (*cur)->next=p;
+        cur=&((*cur)->next);
+        flow=sum/10;
+    }
+    ListNode *ret=head->next;
+    delete head;
+    return ret;
+}
+

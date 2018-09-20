@@ -11,6 +11,13 @@ typedef unsigned int UINT;
 using std::vector;
 using std::map;
 
+
+struct ListNode {
+    int val;
+    ListNode *next;
+    ListNode(int x) : val(x), next(NULL) {}
+};
+
 class Leetcode
 {
 public:
@@ -172,6 +179,8 @@ public:
 
     static int reverseInteger(int x);
 
+////*****************************************linked list********************************************////
+    static ListNode* addTwoNumbers(ListNode* l1, ListNode* l2);
 
 };
 
