@@ -132,7 +132,7 @@ public:
      */
     static vector<vector<int> > partitionNearestSumSubArr(const vector<int>& arr);
 
-
+    static void nextPermutation(vector<int>& nums) ;
 
 ////*****************************************Examinations********************************************////
 

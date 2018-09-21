@@ -566,6 +566,39 @@ vector<vector<int> > Leetcode::partitionNearestSumSubArr(const vector<int> &arr)
     return vector<vector<int> >({first,sortedArr});
 }
 
+void Leetcode::nextPermutation(vector<int> &nums)
+{
+    int split=nums.size()-1;
+    int ceilPos=nums.size()-1;
+    bool get=false;
+    for(;split>0;--split){
+        if(nums[split-1]<nums[split]){
+            get=true;
+            --split;
+            break;
+        }
+    }
+    int l=0;
+    if(get){
+        int minCeil=std::numeric_limits<int>::max();
+        for(int j=nums.size()-1;split<j;--j){
+            if(nums[split]<nums[j]){
+                if(minCeil>nums[j]){
+                    minCeil=nums[j];
+                    ceilPos=j;
+                }
+            }
+        }
+        swap(nums[split],nums[ceilPos]);
+        l=split+1;
+    }else{
+       l=0;
+    }
+    for(int i=l,j=nums.size()-1;i<j;++i,--j){
+        swap(nums[i],nums[j]);
+    }
+}
+
 
 
 

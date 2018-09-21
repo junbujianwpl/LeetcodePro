@@ -15,6 +15,8 @@ using std::vector;
 
 int main(int argc,char** argv){
 
+    TestLeetCode::nextpermutationTest();
+    return 0;
 
     TestLeetCode::addTwoLinkListTest();
     return 0;

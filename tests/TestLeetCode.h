@@ -46,6 +46,8 @@ public:
     static void twoSumTestLeet();
 
     static void addTwoLinkListTest();
+
+    static void nextpermutationTest();
 };
 
 #endif // TESTLEETCODE_H

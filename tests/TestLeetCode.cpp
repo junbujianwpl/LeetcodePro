@@ -323,3 +323,14 @@ void TestLeetCode::addTwoLinkListTest()
         node=node->next;
     }
 }
+
+void TestLeetCode::nextpermutationTest()
+{
+    vector<int> v({1,2,4,5,6,7,6,5,4});
+//    vector<int> v({1,1,5});
+//    vector<int> v({3,2,1});
+    print_arr(v,v.size());
+    Leetcode::nextPermutation(v);
+    print_arr(v,v.size());
+
+}
