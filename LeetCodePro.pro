@@ -41,7 +41,12 @@ SOURCES += \
     YangHuiTriangle.cpp \
     ComputerBase.cpp \
     Tree.cpp \
-    tests/TestTree.cpp
+    tests/TestTree.cpp \
+    BFS.cpp \
+    tests/TestBFS.cpp \
+    AtomicLab.cpp \
+    tests/TestAtomic.cpp \
+    common.cpp
 
 HEADERS += \
     common.h \
@@ -57,7 +62,11 @@ HEADERS += \
     YangHuiTriangle.h \
     ComputerBase.h \
     Tree.h \
-    tests/TestTree.h
+    tests/TestTree.h \
+    BFS.h \
+    tests/TestBFS.h \
+    AtomicLab.h \
+    tests/TestAtomic.h
 
 FORMS +=
 

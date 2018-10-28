@@ -334,3 +334,46 @@ void TestLeetCode::nextpermutationTest()
     print_arr(v,v.size());
 
 }
+
+void TestLeetCode::commonPrefixTest()
+{
+//    vector<string> v({"flowe","flow","flight"});
+    vector<string> v({"aca","cba"});
+    string res=Leetcode::longestCommonPrefix(v);
+    std::cout<<res.c_str()<<std::endl;
+
+}
+
+void TestLeetCode::mergeSortedListTest()
+{
+
+    vector<ListNode> v1({ListNode(1),ListNode(1),ListNode(8),ListNode(9),});
+    vector<ListNode> v2({ListNode(4),ListNode(5),ListNode(6),ListNode(9),});
+
+    vector<vector<ListNode> > vv({v1,v2});
+    for(int i=0;i<vv.size();++i ){
+        for(int j=0;j<vv[i].size()-1;++j){
+            vv[i][j].next=&vv[i][j+1];
+        }
+    }
+
+    ListNode* node=Leetcode::mergeTwoLists(&vv[0][0],&vv[1][0]);
+    while(node){
+        std::cout<<node->val<<std::endl;
+        node=node->next;
+    }
+}
+
+void TestLeetCode::oddEvenListTest()
+{
+    ListNode* head=make_list(vector<int>({1,2,3,4,5,6,7}));
+    print_list_node(head);
+
+    ListNode* cur=Leetcode::oddEvenList(head);
+    print_list_node(cur);
+
+
+}
+
+
+

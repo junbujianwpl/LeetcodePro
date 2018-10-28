@@ -12,8 +12,27 @@ using std::vector;
 #include "Combination.h"
 #include "BallWeigher.h"
 #include "tests/TestTree.h"
+#include "tests/TestBFS.h"
+#include "tests/TestAtomic.h"
 
 int main(int argc,char** argv){
+
+    TestLeetCode::oddEvenListTest();
+    return 0;
+    TestAtomic::testAtomicArrayInThreads();
+    return 0;
+
+    TestAtomic::testAtomicInThreads();
+    return 0;
+
+
+    TestBFS::testDist();
+    return 0;
+
+    TestLeetCode::mergeSortedListTest();
+    return 0;
+    TestLeetCode::commonPrefixTest();
+    return 0;
 
     TestLeetCode::nextpermutationTest();
     return 0;

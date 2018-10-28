@@ -785,3 +785,81 @@ ListNode *Leetcode::addTwoNumbers(ListNode *l1, ListNode *l2)
     return ret;
 }
 
+ListNode *Leetcode::sortList(ListNode *head)
+{
+
+}
+
+string Leetcode::longestCommonPrefix(vector<string> &strs)
+{
+    string result;
+    if(strs.size()<1 || strs[0].size()<1) return result;
+
+    for(uint i=0;i<strs[0].size();++i){
+     uint j=1;
+     for(j=1;j<strs.size();++j){
+         if(i>=strs[j].size() || strs[0][i] != strs[j][i]){
+         break;
+         }
+     }
+     if(j>=strs.size()) result.push_back(strs[0][i]);
+     else break;
+    }
+    return result;
+}
+
+ListNode *Leetcode::mergeTwoLists(ListNode *l1, ListNode *l2)
+{
+    if(NULL == l1) return l2;
+    if(NULL == l2) return l1;
+
+    ListNode *head,*cur;
+    if(l1->val>l2->val){
+        head = l2;
+        l2=l2->next;
+    }else{
+        head=l1;
+        l1=l1->next;
+    }
+    cur=head;
+
+    while(l1 || l2){
+        if(NULL == l1) {(cur)->next=l2;break;}
+        if(NULL == l2) {(cur)->next=l1;break;}
+        if(l1->val < l2->val){
+            (cur)->next=l1;
+            cur=((cur)->next);
+            l1=l1->next;
+        }else{
+            (cur)->next=l2;
+            cur=((cur)->next);
+            l2=l2->next;
+        }
+    }
+    return head;
+}
+
+ListNode *Leetcode::oddEvenList(ListNode *head)
+{
+    ListNode oDummy(-1),eDummy(-1),*cur=head,*eTail=&eDummy,*oTail=&oDummy;
+    int count=1;
+    while(cur){
+        cout<<count<<endl;
+        if(count++%2==0){
+            eTail->next=cur;
+            eTail=cur;
+        }else{
+            oTail->next=cur;
+            oTail=cur;
+        }
+        cur=cur->next;
+    }
+    if(eTail){
+        eTail->next=NULL;
+    }
+    if(oTail){
+        oTail->next=eDummy.next;
+    }
+    return oDummy.next;
+}
+

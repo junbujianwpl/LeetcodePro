@@ -1,22 +1,17 @@
 #ifndef LEETCODE_H
 #define LEETCODE_H
 
-#include <bits/stdc++.h>
+//#include <bits/stdc++.h>
 #include <vector>
 #include <map>
 #include "common.h"
+
+using namespace std;
 
 typedef unsigned int UINT;
 
 using std::vector;
 using std::map;
-
-
-struct ListNode {
-    int val;
-    ListNode *next;
-    ListNode(int x) : val(x), next(NULL) {}
-};
 
 class Leetcode
 {
@@ -181,7 +176,12 @@ public:
 
 ////*****************************************linked list********************************************////
     static ListNode* addTwoNumbers(ListNode* l1, ListNode* l2);
+    static ListNode* sortList(ListNode* head);
 
+    static string longestCommonPrefix(vector<string>& strs) ;
+    static ListNode* mergeTwoLists(ListNode* l1, ListNode* l2);
+
+    static ListNode* oddEvenList(ListNode* head);
 };
 
 #endif // LEETCODE_H

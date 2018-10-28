@@ -48,6 +48,11 @@ public:
     static void addTwoLinkListTest();
 
     static void nextpermutationTest();
+
+    static void commonPrefixTest();
+
+    static void mergeSortedListTest();
+    static void oddEvenListTest();
 };
 
 #endif // TESTLEETCODE_H
