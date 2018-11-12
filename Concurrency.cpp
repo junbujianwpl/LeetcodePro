@@ -20,7 +20,7 @@ int Concurrency<T>::work()
 //        oss<<"thread id:"<<myid<<" done job "<<idx<<endl;
     }
     oss<<"-------"<<myid<<" done "<<count.load(memory_order_acquire)<<" jobs"<<endl<<endl;
-    lock_guard<mutex> lock(_concurrency::mut);
+    lock_guard<mutex> lock(_concurrency::mut);		///<RAII
     _concurrency::logs<<oss.str();
     return myid;
 }
