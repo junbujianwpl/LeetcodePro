@@ -1,8 +1,7 @@
 #ifndef TREE_H
 #define TREE_H
 
-#include <vector>
-using std::vector;
+#include "common.h"
 // Definition for a Node.
 class Node {
 public:
