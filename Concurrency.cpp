@@ -1,9 +1,9 @@
 #include "Concurrency.h"
 #include "common.h"
 
-namespace _concurrency {
-    static ostringstream logs;
-    static mutex mut;
+namespace _concurrency {	///<avoid redefinition error
+    ostringstream logs;		///<we can make it static to avoid conficts
+    mutex mut;
 }
 
 template<class T>
