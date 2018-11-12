@@ -54,7 +54,7 @@ Concurrency<T>::Concurrency(vector<function<T> > &vt, vector<int> &vr, int num):
 template<class T>
 void Concurrency<T>::test()
 {
-    int nJobNum=100,nThreadNum=5;
+    int nJobNum=10,nThreadNum=3;
     vector<function<T> > jobs(nJobNum,Concurrency::payload);
     vector<int> results(nJobNum,-1);
     Concurrency(jobs,results,nThreadNum);
