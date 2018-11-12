@@ -14,8 +14,13 @@ using std::vector;
 #include "tests/TestTree.h"
 #include "tests/TestBFS.h"
 #include "tests/TestAtomic.h"
+#include "Concurrency.h"
+#include "Concurrency.cpp"
 
 int main(int argc,char** argv){
+
+    Concurrency<int()>::test();
+    return 0;
 
     TestLeetCode::oddEvenListTest();
     return 0;

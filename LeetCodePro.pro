@@ -46,7 +46,8 @@ SOURCES += \
     tests/TestBFS.cpp \
     AtomicLab.cpp \
     tests/TestAtomic.cpp \
-    common.cpp
+    common.cpp \
+    Concurrency.cpp
 
 HEADERS += \
     common.h \
@@ -66,7 +67,8 @@ HEADERS += \
     BFS.h \
     tests/TestBFS.h \
     AtomicLab.h \
-    tests/TestAtomic.h
+    tests/TestAtomic.h \
+    Concurrency.h
 
 FORMS +=
 
