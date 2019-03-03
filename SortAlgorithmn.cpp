@@ -184,3 +184,21 @@ int SortAlgorithmn::adjustHeap(int *arr, int start, int max)
     }
     return times;
 }
+
+int SortAlgorithmn::quickSort(vector<int>::iterator start, vector<int>::iterator stop)
+{
+    if(start+1>=stop) return 0;
+
+    auto i=start,j=stop-1;
+    while(i<j){
+        while(i<j && *i<=*j) ++i;
+        swap(*i,*j);
+
+        while(i<j && *i<=*j) --j;
+        swap(*i,*j);
+    }
+
+    quickSort(start,j);
+    quickSort(j,stop);
+    return 0;
+}

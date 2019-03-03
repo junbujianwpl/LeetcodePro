@@ -16,7 +16,10 @@ public:
 
     static void qsortTest();
 
+    static void testQuickSortIterator();
+
 private slots:
+
     void testQuickSort();
 
     void testHeapSort();

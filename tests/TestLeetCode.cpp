@@ -351,8 +351,8 @@ void TestLeetCode::mergeSortedListTest()
     vector<ListNode> v2({ListNode(4),ListNode(5),ListNode(6),ListNode(9),});
 
     vector<vector<ListNode> > vv({v1,v2});
-    for(int i=0;i<vv.size();++i ){
-        for(int j=0;j<vv[i].size()-1;++j){
+    for(uint i=0;i<vv.size();++i ){
+        for(uint j=0;j<vv[i].size()-1;++j){
             vv[i][j].next=&vv[i][j+1];
         }
     }

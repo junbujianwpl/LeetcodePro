@@ -1,5 +1,6 @@
 #include "Concurrency.h"
 #include "common.h"
+#include <stdlib.h>
 
 namespace _concurrency {	///<avoid redefinition error
     ostringstream logs;		///<we can make it static to avoid conficts
@@ -31,7 +32,7 @@ int Concurrency<T>::payload()
     static atomic<int> sai(0);
 
     int ret=sai++;
-    int sleepTime=random()%1000;
+    int sleepTime=rand()%1000;
     cout<<"sleep "<<sleepTime<<"ms,return val:"<<ret<<endl;
     this_thread::sleep_for(chrono::milliseconds(sleepTime));
     return ret;

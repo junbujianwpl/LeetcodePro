@@ -16,6 +16,14 @@ void TestSortAlgorithmn::qsortTest()
 
 }
 
+void TestSortAlgorithmn::testQuickSortIterator()
+{
+    vector<int> v({-1,0,1,2,-1,-4});
+//    vector<int> v({1,2,3,0,5,4,6});
+    SortAlgorithmn::quickSort(v.begin(),v.end());
+    print_arr(v,v.size());
+}
+
 void TestSortAlgorithmn::testQuickSort()
 {
     int arr[]={2,1,4,9,99,33,22,55,21,42,90};

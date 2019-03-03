@@ -22,7 +22,7 @@ ListNode* make_list(vector<int> v);
 
 #define print_arr(arr,len) \
     std::cout<<len<<":num "; \
-    for(int iix=0;iix<len;iix++) \
+    for(unsigned int iix=0;iix<len;iix++) \
     std::cout<<arr[iix]<<" ";            \
     std::cout<<std::endl;           \
 

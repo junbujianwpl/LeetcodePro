@@ -8,7 +8,6 @@
 #include "YangHuiTriangle.h"
 #include "ComputerBase.h"
 #include <vector>
-using std::vector;
 #include "Combination.h"
 #include "BallWeigher.h"
 #include "tests/TestTree.h"
@@ -17,7 +16,12 @@ using std::vector;
 #include "Concurrency.h"
 #include "Concurrency.cpp"
 
+using std::vector;
+
 int main(int argc,char** argv){
+
+    TestSortAlgorithmn::testQuickSortIterator();
+    return 0;
 
     Concurrency<int()>::test();
     return 0;
